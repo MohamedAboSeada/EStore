@@ -29,15 +29,18 @@
 }
 .firstContent {
   color: #475156;
-  size: 16px;
+  font-size: 16px;
 }
 .addressFirst {
   padding-top: 16px;
   color: #191c1f;
-  size: 16px;
+   font-size: 16px;
 }
 
 /* ................................................... */
+
+
+
 
 /* session */
 
@@ -57,17 +60,58 @@
 .sessionHeader {
   margin-top: 20px;
   margin-bottom: 35px;
-  size: 16px;
+  font-size: 32px;
   color:#191C1F;
   ;
 }
 
 .sessionSpan{
-    size: 14px;
+   font-size: 17px;
     color: #475156;
     margin: 0px;
 
 }
 .content{
     margin: 0px;
+}
+
+
+
+
+
+
+/* .............................................. */
+
+
+/* lastsession   products */
+
+.productsMain{
+    margin-top: 60px;
+    padding: 30px;
+}
+
+.products{
+    border: solid 1px #E4E7E9;
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 50px;
+
+}
+
+.productsHeader{
+    color: #191C1F;
+    font-size: 25px;
+    /* margin-top: 1000px; */
+}
+.productsSpan{
+    color: #191C1F;
+    size:14px
+    
+}
+
+.productsPrice{
+    margin-top: 9px;
+    font-size: 20px;
+    color: #2DA5F3;
+    ;
 }

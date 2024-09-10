@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import About from "./components/Ahmed Raafat/About";
 import Session from "./components/Ahmed Raafat/Session";
-
+import LastSession from "./components/Ahmed Raafat/LastSession";
 
 // routes
 import Home from "./components/HomePage/Home";
@@ -20,7 +20,9 @@ class App extends React.Component {
       // </Router>
 
       // <About/>
-      <Session/>
+      // <Session/>
+      
+      <LastSession/>
     
     );
   }
