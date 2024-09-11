@@ -1,0 +1,38 @@
+.footer {
+    background-color: #000;
+}
+
+.footer__logo {
+    margin: 0;
+}
+
+.estore__footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.support {
+    display: flex;
+    margin: 10px 0 20px 0;
+    flex-direction: column;
+}
+
+.support__header {
+    margin: 0;
+}
+
+.support__number {
+    margin: 0;
+}
+
+.support__address {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    gap: 5px;
+}
+
+.support__link {
+    text-decoration: none;
+    font-size: 1.2rem;
+}
