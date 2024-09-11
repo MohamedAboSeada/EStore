@@ -7,7 +7,7 @@ export class Session extends Component {
       <div>
         <div className="main">
 
-          <h1 className="sessionHeader">Our core team member</h1>
+          <h1 className="sessionHeader1">Our core team member</h1>
 
           <div className="container">
             <div className="row">
