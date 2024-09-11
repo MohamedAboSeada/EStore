@@ -2,10 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 
-// routes
+// Project Components
 import Home from "./components/HomePage/Home";
 
-// Project Components
 class App extends React.Component {
   render() {
     return (

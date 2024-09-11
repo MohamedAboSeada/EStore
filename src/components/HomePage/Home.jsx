@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import { getProducts } from '../../API/ProductsAPI.mjs';
+import { getProducts, getProductByID } from '../../API/ProductsAPI.mjs';
 
 export class Home extends Component {
 	render() {
-		getProducts((data) => {
-			console.log(data);
-		});
 
-		return <div>App</div>;
+        getProducts(1, (data) => {
+    console.log(data);
+});
+
+getProductByID(5, (data) => {
+    console.log(data);
+});
+        
+		return <div>Home</div>;
 	}
 }
 
