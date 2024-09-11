@@ -19,10 +19,10 @@ class App extends React.Component {
       //   </Routes>
       // </Router>
 
-      // <About/>
+      <About/>
       // <Session/>
       
-      <LastSession/>
+      // <LastSession/>
     
     );
   }
