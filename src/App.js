@@ -4,6 +4,7 @@ import "./App.css";
 import About from "./components/Ahmed Raafat/About";
 import Session from "./components/Ahmed Raafat/Session";
 import LastSession from "./components/Ahmed Raafat/LastSession";
+import Banner from "./components/Ahmed Raafat/Banner";
 
 // routes
 import Home from "./components/HomePage/Home";
@@ -19,10 +20,11 @@ class App extends React.Component {
       //   </Routes>
       // </Router>
 
-      <About/>
+      // <About/>
       // <Session/>
       
       // <LastSession/>
+      <Banner/>
     
     );
   }

@@ -9,21 +9,22 @@
   flex-wrap: wrap;
   
   margin-top: 100px;
-  margin-left: 100px;
+  margin-left: 20px;
 
-   /* justify-content: center; 
-   align-items: center;  */
+   justify-content: center;  
+   align-items: center;  
   } 
   .Main{
-    margin-top: -525px;
+    margin-top: -550px;
+    margin-left: -500px;
   }
   
  
 .img { 
 
   margin-left: 700px;
-   /* width: 648px;
-  height: 536px;  */
+   width: 700px;
+  height: 526px; 
 
   /* width: 55px;  
   height: 90px;  */
@@ -58,7 +59,7 @@
 .firstContent {
   color: #475156;
   font-weight: 200;
-  font-size: 24px;
+  font-size: 16px;
   margin-top:20px;
   /* margin-top: -500px; */
   /* flex-direction:row ;
@@ -169,3 +170,49 @@
 }
 
 /* ................................ */
+
+/* banner */
+.banner{
+  margin-top: 60px;
+  margin-bottom: 60px;
+
+}
+
+.bannerImg{
+ background-image:url('/public/images/banner.jpg') ;
+ background-size: cover;
+ background-repeat: no-repeat;
+ min-height: 100vh;
+
+}
+.bannerSpan{
+  font-weight: 600;
+  font-size: 32px;
+}
+.bannerSpan2{
+  font-weight: 400;
+  font-size: 18px;
+}
+.bannerContent{
+  padding-top: 180px;
+  margin-left: 40px;
+  
+}
+.button{
+  background-color: orange;
+  margin-top: 30px;
+  border: 1px solid orange;
+  border-radius: 50%;
+  width: 80px; /* Increase width */
+  height: 90px; /* Increase height */
+  
+
+}
+.bannerSpan2{
+  margin-top: 30px;
+}
+.button img {
+  width: 60px; /* Adjust as needed */
+  height: 60px; /* Adjust as needed */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+}
