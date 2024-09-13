@@ -26,9 +26,9 @@ class MidNav extends Component {
 						<button className='mid__btn'>
 							<i className='fas fa-heart'></i>
 						</button>
-						<button className='mid__btn'>
+						<Link to='/register' className='mid__btn'>
 							<i className='fas fa-user'></i>
-						</button>
+						</Link>
 					</div>
 				</div>
 			</div>

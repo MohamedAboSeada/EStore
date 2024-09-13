@@ -5,115 +5,127 @@ import './Footer.css';
 class Footer extends Component {
 	render() {
 		return (
-			<footer className='bg-dark text-white'>
-				<div className='container pt-5'>
-					<div className='row'>
-						<div className='estore__footer col-6 col-md-4 mb-3'>
-							<h1 className='footer__logo text-warning'>ESTORE</h1>
-							<div className='support'>
-								<p className='support__header'>
-									customer support
-								</p>
-								<h4 className='support__number text-warning'>
-									(926) 555-0129
+			<footer className='footer bg-dark'>
+				<div className='container'>
+					<div className='footer__section'>
+						{/* p1 */}
+						<div className='footer__part'>
+							<Link to='/' className='footer__logo text-warning'>
+								EStore
+							</Link>
+							<div className='footer__customer'>
+								<p className='info__text'>Customer Supports:</p>
+								<h4 className='info__number text-warning'>
+									(629) 555-0129
 								</h4>
 							</div>
-							<h4 className='support__address text-secondary'>
-								<i className='fas fa-location-pin'></i>4517
-								Cairo Eve
+							<h4 className='info__address'>
+								<i className='fas fa-location-pin'></i>
+								Cairo, Eve
 							</h4>
-							<a className='support__link text-secondary' href='#'>
-								team@gmail.com
+							<a
+								className='footer__link'
+								href='mailto:madoaxel287@gmail.com'
+							>
+								info@domain.com
 							</a>
 						</div>
-						<div className='col-6 col-md-2 mb-3'>
-							<h5>Quick Links</h5>
-							<ul className='nav flex-column'>
-								<li className='nav-item mb-2'>
-									<Link
-										to='/'
-										className='nav-link p-0 text-secondary'
-									>
-										Home
-									</Link>
-								</li>
-								<li className='nav-item mb-2'>
-									<a
-										href='#'
-										className='nav-link p-0 text-secondary'
-									>
-										Shop Product
+						{/* p2 */}
+						<div className='footer__part'>
+							<h4 className='footer__part-heading'>
+								Quick Links
+							</h4>
+							<ul className='footer__links'>
+								<li>
+									<a href='#' className='footer__link'>
+										Shop Products
 									</a>
 								</li>
-								<li className='nav-item mb-2'>
-									<a
-										href='#'
-										className='nav-link p-0 text-secondary'
-									>
+								<li>
+									<a href='#' className='footer__link'>
 										Shopping Cart
 									</a>
 								</li>
-								<li className='nav-item mb-2'>
-									<a
-										href='#'
-										className='nav-link p-0 text-secondary'
-									>
-										WhishList
+								<li>
+									<a href='#' className='footer__link'>
+										Whishlist
 									</a>
 								</li>
-								<li className='nav-item mb-2'>
-									<a
-										href='#'
-										className='nav-link p-0 text-secondary'
-									>
+								<li>
+									<a href='#' className='footer__link'>
 										Track Order
 									</a>
 								</li>
-								<li className='nav-item mb-2'>
-									<a
-										href='#'
-										className='nav-link p-0 text-secondary'
-									>
+								<li>
+									<a href='#' className='footer__link'>
+										Customer Help
+									</a>
+								</li>
+								<li>
+									<a href='#' className='footer__link'>
 										About Us
 									</a>
 								</li>
 							</ul>
 						</div>
+						{/* {p4} */}
+						<div className='footer__part'>
+							<h4 className='footer__part-heading'>
+								Download App
+							</h4>
 
-						<div className='col-md-5 offset-md-1 mb-3'>
-							<form>
-								<h5>Subscribe to our newsletter</h5>
-								<p className='text-secondary'>
-									Monthly digest of what's new and exciting
-									from us.
+							<div className='footer__apps'>
+								<button className='footer__app'>
+									<i className='fab fa-google-play'></i>
+									<div className='btn__text'>
+										<span className='btn__text-small'>
+											get it now
+										</span>
+										<span className='btn__text-large'>
+											Google Play
+										</span>
+									</div>
+								</button>
+								<button className='footer__app'>
+									<i className='fab fa-apple'></i>
+
+									<div className='btn__text'>
+										<span className='btn__text-small'>
+											get it now
+										</span>
+										<span className='btn__text-large'>
+											App Store
+										</span>
+									</div>
+								</button>
+							</div>
+						</div>
+						{/* p3 */}
+						<div className='footer__part'>
+							<div>
+								<h4 className='footer__part-heading'>
+									Stay Updated !
+								</h4>
+								<p className='info__text'>
+									Lorem, ipsum dolor sit amet consectetur
+									adipisicing elit. Perferendis perspiciatis
+									vitae accusantium quidem quas id vero
+									sapiente. Perspiciatis, iste adipisci?
 								</p>
-								<div className='d-flex flex-column flex-sm-row w-100 gap-2'>
-									<label
-										for='newsletter1'
-										className='visually-hidden'
-									>
-										Email address
-									</label>
-									<input
-										id='newsletter1'
-										type='text'
-										className='form-control'
-										placeholder='Email address'
-									/>
-									<button
-										className='btn btn-primary'
-										type='button'
-									>
-										Subscribe
-									</button>
-								</div>
-							</form>
+							</div>
+							<div className='footer__email'>
+								<input
+									type='text'
+									className='footer__input'
+									placeholder='Enter your email...'
+								/>
+								<button className='footer__btn'>Send</button>
+							</div>
 						</div>
 					</div>
-
-					<div className='d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top'>
-						<p>© 2024 EStore Company, Inc. All rights reserved.</p>
-					</div>
+					<p className='footer__copyrights'>
+						&copy;2024 All rights recieved Team EStore
+					</p>
 				</div>
 			</footer>
 		);
