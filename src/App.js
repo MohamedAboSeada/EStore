@@ -14,7 +14,7 @@ import Verify from './components/MohamedAboSeada/RegisterPage/Verify';
 import { AuthProvider } from './components/MohamedAboSeada/RegisterPage/helper/handleAuthentication';
 
 // MariamElagamii
-import ProductList from './components/MariamElagamii/MariamElagamii/Products/ProductList';
+import ProductList from './components/MariamElagamii/Products/ProductList';
 
 import './App.css';
 
