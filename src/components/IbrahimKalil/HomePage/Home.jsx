@@ -1,9 +1,18 @@
-import React, { Component } from 'react';
-
+import React, { Component } from "react";
+import SpecialOffer from "./SpecialOffer1";
+import Features from "./Features";
 class Home extends Component {
-	render() {
-		return <div>Home</div>;
-	}
+  constructor() {
+    super()
+  }
+  render() {
+    return (
+     <div>
+		  <SpecialOffer/>
+      <Features/>
+	 </div>
+    );
+  }
 }
 
 export default Home;
