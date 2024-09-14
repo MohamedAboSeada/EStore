@@ -1,0 +1,32 @@
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.pagination .page {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #FA8232;
+  border: 2px #FA8232 solid;
+  background-color: transparent;
+  margin: 5px;
+  transition: all 0.5s;
+}
+.pagination button:hover {
+  color: #fff;
+  background-color: #FA8232;
+}
+.pagination .page-num {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
