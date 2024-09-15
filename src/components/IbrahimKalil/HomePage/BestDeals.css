@@ -1,0 +1,76 @@
+/* BestDeals.css */
+.contents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .best-deals-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .deal-end {
+    margin-bottom: 5px; /* لتقليل المسافة بين النص والعناصر الأخرى */
+  }
+  
+  .countdown {
+    height: 40px;
+    width: 200px;
+    display: flex;
+    background: #F3DE6D;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 6px;
+    padding: 0px 10px;
+    gap: 5px;
+  }
+  .countdown p{
+   padding-top: 5px;
+  }
+  .link-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .browse-link {
+    color: #2DA5F3;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  .browse-link i {
+    margin-left: 5px; /* لتوفير مسافة بين النص والرمز */
+  }
+  td{
+    border: 1px solid rgb(235, 235, 235);
+  }
+  .rightDivs{
+    width: 250px;
+  }
+  .dataContainer2,.dataContainer3{
+    display: flex;
+  }
+  h5{
+    text-align: center;
+  }
+  @media(max-width:700px){
+    .contents{
+        display: flex;
+        flex-direction:column;
+    }
+    .best-deals-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+     .dataContainer1,.dataContainer2,.dataContainer3{
+        display: flex;
+        flex-direction: column;
+      }
+  }
+
+  

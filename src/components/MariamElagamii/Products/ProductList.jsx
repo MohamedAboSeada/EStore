@@ -1,5 +1,5 @@
 import React from "react";
-import { getProducts } from "../../../../API/ProductsAPI.mjs";
+import { getProducts } from "../../../API/ProductsAPI.mjs";
 import ProductItem from "./ProductItem";
 import "./ProductList.css";
 
