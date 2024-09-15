@@ -1,0 +1,25 @@
+.table tr {
+    background-color: #E4E7E9 !important;
+}
+.table tr th {
+    color: #475156;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 20px 0;
+}
+.btn-div button {
+    border: 2px solid #2DA5F3;
+    border-radius: 2px;
+    color: #2DA5F3;
+}
+.card-body .btn-success {
+    width: 100%;
+}
+.btn-success {
+    background-color: #FA8232;
+    border-radius: 2px;
+}
+.btn-success:hover {
+    background-color: #DE732D;
+}

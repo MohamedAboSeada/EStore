@@ -15,8 +15,11 @@ import { AuthProvider } from './components/MohamedAboSeada/RegisterPage/helper/h
 
 // MariamElagamii
 import ProductList from './components/MariamElagamii/Products/ProductList';
+import Cart from './components/MariamElagamii/Cart/Cart';
+import ProductDetail from './components/MariamElagamii/Products/ProductDetail';
 
 import './App.css';
+
 
 
 class App extends React.Component {
@@ -28,7 +31,16 @@ class App extends React.Component {
 					{/* routes */}
 					<Routes>
 						<Route path='/' element={<Home />}></Route>
-
+						{/* Cart Route */}
+						<Route 
+							path="/cart" 
+							element={<Cart />}>
+						</Route>
+						{/* Product Route */}
+						<Route 
+							path="/product/:id" 
+							element={<ProductDetail />}>
+						</Route>
 						{/* Register Routes */}
 						<Route
 							path='/register'

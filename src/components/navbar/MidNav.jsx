@@ -21,7 +21,9 @@ class MidNav extends Component {
 					</div>
 					<div style={{marginRight:'10px'}} className='mid__btns'>
 						<button className='mid__btn'>
-							<i className='fas fa-cart-shopping'></i>
+							<Link to="/cart">
+								<i className='fas fa-cart-shopping' />
+							</Link>
 						</button>
 						<button className='mid__btn'>
 							<i className='fas fa-heart'></i>
