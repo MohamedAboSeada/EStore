@@ -1,40 +1,40 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 
 function FormInput({ type, label, value, setValue }) {
 	let [visible, setVisible] = useState(false);
 	let password = useRef(null);
 
 	useEffect(() => {
-		if (type === 'password') {
+		if (type === "password") {
 			if (visible) {
-				password.current.type = 'text';
+				password.current.type = "text";
 				password.current.focus();
 			} else {
-				password.current.type = 'password';
+				password.current.type = "password";
 			}
 		}
 	}, [visible]);
 
 	return (
-		<div className='field'>
-			<label className='field__label'>{label}</label>
-			<div className='mydiv'>
+		<div className="field bg-slate">
+			<label className="field__label">{label}</label>
+			<div className="mydiv">
 				<input
 					ref={password}
 					value={value}
 					onChange={(e) => setValue(e.target.value)}
 					type={type}
-					className='field__input'
+					className="field__input"
 				/>
 
-				{type === 'password' && (
+				{type === "password" && (
 					<button
 						onClick={() => setVisible(!visible)}
-						className='show__btn'
+						className="show__btn"
 					>
 						<i
 							className={`far ${
-								visible ? 'fa-eye-slash' : 'fa-eye'
+								visible ? "fa-eye-slash" : "fa-eye"
 							}`}
 						></i>
 					</button>

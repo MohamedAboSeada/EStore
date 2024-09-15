@@ -37,9 +37,9 @@ class Footer extends Component {
 							</h4>
 							<ul className='footer__links'>
 								<li>
-									<a href='#' className='footer__link'>
+									<Link to='/shop' className='footer__link'>
 										Shop Products
-									</a>
+									</Link>
 								</li>
 								<li>
 									<a href='#' className='footer__link'>

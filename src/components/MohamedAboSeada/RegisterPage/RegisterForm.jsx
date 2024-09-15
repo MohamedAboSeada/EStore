@@ -6,7 +6,7 @@ import './Register.css';
 
 function RegisterForm() {
 	// Auth Context
-	let { SignInWithGoogle } = useContext(AuthContext);
+	let { SignIn, SignUp, error, SignInWithGoogle } = useContext(AuthContext);
 
 	// boolean state
 	let [login, setLogin] = useState(false);
@@ -17,6 +17,7 @@ function RegisterForm() {
 	let [email, setEmail] = useState('');
 	let [password, setPassword] = useState('');
 	let [cpassword, setCpassword] = useState('');
+	let [confirm, setConfirm] = useState(false);
 
 	// form error state
 	let [errors, setErrors] = useState({
@@ -133,15 +134,20 @@ function RegisterForm() {
 		}
 
 		// if no errors, navigate
-		if (!hasErrors) {
-			// perform navigation to verify email
-			navigate('/verify-email');
+		if (!hasErrors && !error) {
+			if (login) {
+				SignIn(email, password);
+				navigate('/dashboard/profile');
+			} else {
+				SignUp(name, email, password);
+				setConfirm(true);
+			}
 		}
 	};
 
 	return (
 		<div className='container'>
-			<div className='register__form shadow'>
+			<div className='register__form tw-w-[55%] tw-shadow'>
 				{/* header */}
 				<div className='register__form-header'>
 					<button
@@ -237,6 +243,18 @@ function RegisterForm() {
 					>
 						{login ? 'Sign In' : 'Sign Up'}
 					</button>
+					{error && (
+						<p className='tw-text-red-50 tw-capitalize tw-text-center tw-text-lg tw-m-0 tw-bg-red-500 tw-p-2 tw-rounded-md tw-flex tw-items-center tw-gap-2 tw-justify-center'>
+							<i className='fa-solid fa-circle-xmark'></i>
+							{error}
+						</p>
+					)}
+					{confirm && (
+						<p className='tw-text-green-50 tw-capitalize tw-text-center tw-text-lg tw-m-0 tw-bg-green-500 tw-p-2 tw-rounded-md tw-flex tw-items-center tw-gap-2 tw-justify-center'>
+							<i className='fa-solid fa-circle-check'></i>
+							Please verify your email
+						</p>
+					)}
 				</form>
 
 				<div className='divider'>

@@ -1,7 +1,7 @@
-import React from "react";
-import { getProducts } from "../../../../API/ProductsAPI.mjs";
-import ProductItem from "./ProductItem";
-import "./ProductList.css";
+import React from 'react';
+import { getProducts } from '../../../API/ProductsAPI.mjs';
+import ProductItem from './ProductItem';
+import './ProductList.css';
 
 /*
 {
@@ -19,44 +19,49 @@ import "./ProductList.css";
 */
 
 export default function ProductList() {
-  const [products, setProducts] = React.useState([]);
-  const [page, setPage] = React.useState(1);
+	const [products, setProducts] = React.useState([]);
+	const [page, setPage] = React.useState(1);
 
-  React.useEffect(() => {
-    getProducts(page, function (data) {
-      setProducts(data);
-    });
-  }, [page]);
-  return (
-    <div className="container">
-      <div className="product-list">
-        {products.map((product) => (
-          <ProductItem
-            key={product.id}
-            id={product.id}
-            image={product.image}
-            name={product.name}
-            originalPrice={product.actual_price}
-            discountPrice={product.discount_price}
-            ratings={product.ratings}
-            numRatings={product.no_of_ratings}
-          />
-        ))}
-      </div>
+	React.useEffect(() => {
+		getProducts(page, function (data) {
+			setProducts(data);
+		});
+	}, [page]);
+	return (
+		<div className='container'>
+			<div className='product-list'>
+				{products.map((product) => (
+					<ProductItem
+						key={product.id}
+						id={product.id}
+						image={product.image}
+						name={product.name}
+						originalPrice={product.actual_price}
+						discountPrice={product.discount_price}
+						ratings={product.ratings}
+						numRatings={product.no_of_ratings}
+					/>
+				))}
+			</div>
 
-      <div className="pagination">
-        {page > 1 ? (
-          <li class="page-item">
-            <button className="page" onClick={() => setPage(page - 1)}><i class="fa-solid fa-arrow-left-long"></i></button>
-          </li>
-
-        ) : undefined
-        }
-        <span className="page page-num">{page}</span>
-        <li class="page-item">
-          <button className="page" onClick={() => setPage(page + 1)}><i class="fa-solid fa-arrow-right-long"></i></button>
-        </li>
-      </div>
-    </div>
-  );
+			<div className='pagination'>
+				{page > 1 ? (
+					<li class='page-item'>
+						<button
+							className='page'
+							onClick={() => setPage(page - 1)}
+						>
+							<i class='fa-solid fa-arrow-left-long'></i>
+						</button>
+					</li>
+				) : undefined}
+				<span className='page page-num'>{page}</span>
+				<li class='page-item'>
+					<button className='page' onClick={() => setPage(page + 1)}>
+						<i class='fa-solid fa-arrow-right-long'></i>
+					</button>
+				</li>
+			</div>
+		</div>
+	);
 }
