@@ -32,7 +32,7 @@ class App extends React.Component {
 					<Nav />
 					{/* routes */}
 					<Routes>
-						<Route path='/' element={<FaqPage />}></Route>
+						<Route path='/' element={<Home />}></Route>
 						{/* Cart Route */}
 						<Route 
 							path="/cart" 
