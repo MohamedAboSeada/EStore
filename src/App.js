@@ -17,8 +17,10 @@ import { AuthProvider } from './components/MohamedAboSeada/RegisterPage/helper/h
 import ProductList from './components/MariamElagamii/Products/ProductList';
 import Cart from './components/MariamElagamii/Cart/Cart';
 import ProductDetail from './components/MariamElagamii/Products/ProductDetail';
+import FaqPage from './components/MariamElagamii/FAQ/FaqPage';
 
 import './App.css';
+
 
 
 
@@ -30,7 +32,7 @@ class App extends React.Component {
 					<Nav />
 					{/* routes */}
 					<Routes>
-						<Route path='/' element={<Home />}></Route>
+						<Route path='/' element={<FaqPage />}></Route>
 						{/* Cart Route */}
 						<Route 
 							path="/cart" 
@@ -41,6 +43,11 @@ class App extends React.Component {
 							path="/product/:id" 
 							element={<ProductDetail />}>
 						</Route>
+						{/* FAQ Route */}
+						<Route
+							path="/faq" 
+							element={<FaqPage />}>
+							</Route>
 						{/* Register Routes */}
 						<Route
 							path='/register'
