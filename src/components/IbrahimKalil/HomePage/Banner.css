@@ -1,0 +1,113 @@
+/* القواعد الأساسية */
+.content {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    height: auto; /* يسمح للعناصر بالانتقال إلى الأسطر التالية إذا لزم الأمر */
+  }
+  
+  .banner1, .banner2 {
+    display: flex;
+    background: #F2F4F5;
+    padding: 30px;
+    border-radius: 8px; /* إضافة حواف دائرية للعناصر */
+    flex: 1 1 45%; /* يجعل العناصر تأخذ مساحة 45% من الحاوية الرئيسية، مع إمكانية التوسع والانكماش */
+    box-sizing: border-box; /* لضمان احتساب الحشوة والحدود ضمن حجم العنصر */
+  }
+  
+  .banner1 {
+    background: #F2F4F5;
+  }
+  
+  .banner2 {
+    background: #191C1F;
+    color: white;
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .btn {
+    background-color: #FA8232;
+    padding: 10px 30px;
+    color: white;
+    border: none;
+    border-radius: 4px; /* إضافة حواف دائرية للأزرار */
+    cursor: pointer;
+  }
+  
+  .paragraph, .paragraph2 {
+    display: inline;
+    padding: 5px 10px;
+    border-radius: 4px; /* إضافة حواف دائرية للعناصر النصية */
+  }
+  
+  .paragraph {
+    color: white;
+    background: #2DA5F3;
+  }
+  
+  .paragraph2 {
+    background: #EFD33D;
+    color: black;
+  }
+  
+  /* صور */
+  .banner1 img, .banner2 img {
+    max-width: 100%;
+    height: auto;
+  }
+  .price-tag {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: #2DA5F3;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+  }
+  /* القواعد الخاصة بالشاشات الصغيرة */
+  @media (max-width: 750px) {
+    .content {
+      flex-direction: column; /* تنظيم العناصر عموديًا على الشاشات الصغيرة */
+      gap: 20px; /* تقليل الفجوة بين العناصر */
+    }
+  
+    .banner1, .banner2 {
+      flex-direction: column; /* تنظيم محتوى العناصر عموديًا */
+      align-items: center; /* توسيط المحتوى */
+      text-align: center; /* توسيط النصوص */
+    }
+  
+    .banner2 img {
+      position: static; /* إعادة تعيين الموقع الثابت للصورة */
+      max-width: 100%; /* التأكد من تناسب الصورة مع عرض العنصر */
+      height: auto;
+    }
+  
+    .banner1 img {
+      max-width: 100%; /* التأكد من تناسب الصورة مع عرض العنصر */
+      height: auto;
+    }
+  }
+  
+  /* القواعد الخاصة بالشاشات الأصغر جداً */
+  @media (max-width: 500px) {
+    .content {
+      gap: 10px; /* تقليل الفجوة بين العناصر على الشاشات الأصغر */
+    }
+  
+    .btn {
+      padding: 8px 20px; /* تقليل حجم الحشوة للأزرار على الشاشات الصغيرة جداً */
+    }
+    .banner2 img{
+        padding-top:500pxpx;
+    }
+
+  }
+  
