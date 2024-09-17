@@ -32,7 +32,7 @@ function AuthProvider({ children }) {
 						address: '',
 						image:
 							data.session.user.user_metadata?.avatar_url ||
-							'https://cdn.placeholder.co/150',
+							'https://placehold.co/400',
 						name: data.session.user.user_metadata.full_name,
 					});
 				}

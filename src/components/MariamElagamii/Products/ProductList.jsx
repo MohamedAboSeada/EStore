@@ -1,7 +1,7 @@
-import React from 'react';
-import { getProducts } from '../../../API/ProductsAPI.mjs';
-import ProductItem from './ProductItem';
-import './ProductList.css';
+import React from "react";
+import { getProducts } from "../../../API/ProductsAPI.mjs";
+import ProductItem from "./ProductItem";
+import "./ProductList.css";
 
 /*
 {
@@ -44,24 +44,19 @@ export default function ProductList() {
 				))}
 			</div>
 
-			<div className='pagination'>
-				{page > 1 ? (
-					<li class='page-item'>
-						<button
-							className='page'
-							onClick={() => setPage(page - 1)}
-						>
-							<i class='fa-solid fa-arrow-left-long'></i>
-						</button>
-					</li>
-				) : undefined}
-				<span className='page page-num'>{page}</span>
-				<li class='page-item'>
-					<button className='page' onClick={() => setPage(page + 1)}>
-						<i class='fa-solid fa-arrow-right-long'></i>
-					</button>
-				</li>
-			</div>
-		</div>
-	);
+      <div className="pagination">
+        {page > 1 ? (
+          <li class="page-item">
+            <button className="page" onClick={() => setPage(page - 1)}><i class="fa-solid fa-arrow-left-long"></i></button>
+          </li>
+
+        ) : undefined
+        }
+        <span className="page page-num">{page}</span>
+        <li class="page-item">
+          <button className="page" onClick={() => setPage(page + 1)}><i class="fa-solid fa-arrow-right-long"></i></button>
+        </li>
+      </div>
+    </div>
+  );
 }

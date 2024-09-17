@@ -15,7 +15,6 @@ export async function UpdateUser(userId, userData) {
 		.update({ ...userData })
 		.eq('id', userId)
 		.select();
-	return updatedData;
 }
 
 export async function DeleteUser(userId) {
@@ -32,6 +31,6 @@ export async function CreateUser(userId, userData) {
 		.from('profiles')
 		.insert({ id: userId, ...userData })
 		.select();
-        
+
 	return createdData;
 }

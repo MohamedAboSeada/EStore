@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../RegisterPage/helper/handleAuthentication';
-import { GetUser } from '../RegisterPage/helper/Users';
+import { GetUser, UpdateUser } from '../RegisterPage/helper/Users';
 function Settings() {
 	let { user } = useContext(AuthContext);
 
@@ -47,26 +47,26 @@ function Settings() {
 		}
 	};
 
-	// const handleSubmit = (e) => {
-	// 	e.preventDefault();
-	// 	updateUserData(
-	// 		userData.name,
-	// 		userData.email,
-	// 		userData.profilePhoto,
-	// 		userData.phoneNumber,
-	// 		userData.address,
-	// 		userData.secondaryEmail
-	// 	);
-	// };
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		UpdateUser(user.id, {
+			phone: userData.phone,
+			email: userData.email,
+			address: userData.address,
+			image: userData.image,
+			name: userData.name,
+		});
+		console.log('data has updated !');
+	};
 
 	return loading ? (
 		<h1>Loading...</h1>
 	) : (
-		<div className='tw-col-span-9 tw-border-[1px] tw-border-stone-300 tw-border-solid tw-bg-white tw-rounded-lg tw-shadow-sm'>
+		<div className='tw-col-span-12 md:tw-col-span-9 tw-border-[1px] tw-border-stone-300 tw-border-solid tw-bg-white tw-rounded-lg tw-shadow-sm'>
 			<h1 className='tw-text-lg m-0 tw-uppercase tw-font-[500] tw-p-3 tw-border-b-[1px] tw-border-solid tw-border-transparent tw-border-b-stone-300'>
 				Account Settings
 			</h1>
-			<form>
+			<form onSubmit={handleSubmit}>
 				<div className='tw-flex tw-flex-col tw-items-center tw-space-y-[-40px]'>
 					<div className='tw-h-[150px] tw-w-[150px]'>
 						<img
@@ -119,7 +119,7 @@ function Settings() {
 					</label>
 					<input
 						type='tel'
-						name='phoneNumber'
+						name='phone'
 						value={userData.phone}
 						onChange={handleInputChange}
 						className='tw-border-[1px] tw-border-solid tw-border-stone-400 tw-outline-none tw-w-full tw-p-2 tw-rounded-md'

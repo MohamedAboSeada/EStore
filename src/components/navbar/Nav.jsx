@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Nav.css';
 
 // nav components
 import ToHeader from './ToHeader';
