@@ -18,7 +18,7 @@
   margin-top: 20px;
 }
 .firstImg {
-  background-image: url("/public/images/service.png");
+  /* background-image: url("/public/images/service.png"); */
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -48,7 +48,7 @@
   font-weight: 400;
   border-radius: 6px 0 0 4px;
   flex-grow: 1;
-  background: url("/public/images/search.png") no-repeat left center;
+  /* background: url("/public/images/search.png") no-repeat left center; */
   background-size: 24px;
   outline: none;
   color: #77878f;

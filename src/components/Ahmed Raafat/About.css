@@ -1,7 +1,4 @@
-
-
-
- .first {
+.first {
    width: 100%;
    display: flex;
 
@@ -64,11 +61,7 @@
   /* margin-top: -500px; */
   /* flex-direction:row ;
   flex-wrap: wrap; */
-  width: 50%;
-  
-  
-  
-  
+  width: 50%; 
 }
  .addressFirst {
   margin-top: 40px;
@@ -186,7 +179,7 @@
 }
 
 .bannerImg{
- background-image:url('/public/images/banner.jpg') ;
+ /* background-image:url('/public/images/banner.jpg') ; */
  background-size: cover;
  background-repeat: no-repeat;
  min-height: 100vh;

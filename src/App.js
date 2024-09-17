@@ -8,6 +8,8 @@ import Footer from "./components/Footer/Footer";
 
 import Service from "./components/Ahmed Raafat/Service";
 import About from "./components/Ahmed Raafat/About";
+import ProductDetail from "./components/MariamElagamii/Products/ProductDetail";
+import Cart from "./components/MariamElagamii/Cart/Cart";
 
 class App extends React.Component {
   render() {
@@ -19,6 +21,8 @@ class App extends React.Component {
           <Route path="/" element={<Home />}></Route>
           <Route path="/help" element={<Service />}></Route>
           <Route path="/about" element={<About />}></Route>
+          <Route path="/product/:id" element={<ProductDetail />}></Route>
+          <Route path="/cart" element={<Cart/>}></Route>
         </Routes>
         {/* routes */}
         <Footer />
