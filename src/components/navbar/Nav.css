@@ -54,6 +54,12 @@
     background-color: red;
 }
 
+@media (max-width:600px) {
+    .discount__header-deal {
+        display: none;
+    }
+}
+
 /* end deals header */
 .welcome__header {
     background-color: #1B6392;
@@ -176,4 +182,23 @@
     border: none;
     background-color: #7294aa;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+    .welcome__header-text {
+        display: none;
+    }
+
+    .mid__header .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .search__field {
+        display: none;
+    }
 }

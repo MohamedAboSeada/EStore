@@ -1,0 +1,24 @@
+
+tr td .btn-outline-danger {
+    border: 1.5px solid ;
+    border-radius: 50%;
+    padding: 0;
+    line-height: 0;
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+}
+tr td .btn i {
+    font-size: 10px;
+    font-weight: 700;
+}
+.qunt .btn {
+    border: none;
+    padding: 0;
+}
+.qunt input {
+    border: none;
+}
+.table>:not(caption)>*>* {
+    padding: 20px 0;
+}
