@@ -1,63 +1,65 @@
 /* Slider.css */
 
 .slider {
-    position: relative;
-    padding: 20px 0; /* Adjust the padding as needed */
-  }
-  
-  .slider-container {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .slider-content {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* For Firefox */
-  }
-  
-  .slider-content::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Edge */
-  }
-  
-  .slider-item {
-    flex: none;
-    width: 250px; /* Adjust size as needed */
-    margin-right: 20px;
-    scroll-snap-align: start;
-  }
-  
-  .slider-image {
-    width:150px;
-    height: 150;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .scroll-button {
-    position: absolute;
-    top: 20%;
-    transform: translateY(-50%);
-    background-color: #FA8232;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 18px;
-    z-index: 10; /* Ensure the button is above other content */
-  }
-  
-  .scroll-left {
-    left: 10px;
-  }
-  
-  .scroll-right {
-    right: 10px;
-  }
-  
+  position: relative;
+  padding: 20px 0; /* Adjust the padding as needed */
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-content {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* For Firefox */
+}
+
+.slider-content::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
+}
+
+.slider-item {
+  flex: none;
+  width: 250px; /* Adjust size as needed */
+  margin-right: 20px;
+  scroll-snap-align: start;
+}
+
+.slider-image {
+  width:150px;
+  height: 150;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all ease .5s;
+}
+.slider-image:hover {
+  transform: translateX(35px); 
+}
+.scroll-button {
+  position: absolute;
+  top: 20%;
+  transform: translateY(-50%);
+  background-color: #FA8232;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 10; /* Ensure the button is above other content */
+}
+
+.scroll-left {
+  left: 10px;
+}
+
+.scroll-right {
+  right: 10px;
+}

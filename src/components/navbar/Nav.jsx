@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import NavWelcome from './NavWelcome';
 import MidNav from './MidNav';
 
-import './nav.css';
+import './Nav.css';
 
 class Nav extends Component {
 	render() {

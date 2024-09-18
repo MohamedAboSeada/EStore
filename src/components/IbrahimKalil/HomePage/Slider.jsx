@@ -41,7 +41,7 @@ const Slider = () => {
                 style={{ height: "400px" }}
               >
                 <img
-                   onClick={()=>navigate(`shop/${product.id}`)}
+                   onClick={()=>navigate(`product/${product.id}`)}
                   src={product.image || 'https://via.placeholder.com/400'}
                   alt={product.name}
                   className="slider-image"

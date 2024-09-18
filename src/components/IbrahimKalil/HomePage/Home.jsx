@@ -6,6 +6,7 @@ import Slider from "./Slider";
 import FeaturedProducts from "./FeaturedProducts";
 import Banner from "./Banner";
 import Subscribe from "./Subscribe";
+import LatestNews from "./LatestNews";
 class Home extends Component {
   constructor() {
     super()
@@ -19,6 +20,7 @@ class Home extends Component {
         <Slider/>
         <FeaturedProducts/>
         <Banner/>
+        <LatestNews/>
         <Subscribe/>
 	 </div>
     );
