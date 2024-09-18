@@ -74,6 +74,7 @@
 }
 .firstContent {
   max-width: 600px;
+  margin-left: 120px;
 }
 .sideImage {
   width: 900px; 
@@ -103,7 +104,8 @@
       margin-left: -100px;
   }
   .search-button{
-    margin-left: 80px;
+    margin-left: 120px;
+    margin-top: 10px;
   }
   .search{
     margin-left: -20px;
