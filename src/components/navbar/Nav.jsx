@@ -5,6 +5,7 @@ import './Nav.css';
 import ToHeader from './ToHeader';
 import NavWelcome from './NavWelcome';
 import MidNav from './MidNav';
+import LastNav from './LastNav';
 class Nav extends Component {
 	render() {
 		return (
@@ -12,6 +13,7 @@ class Nav extends Component {
 				<ToHeader />
 				<NavWelcome />
 				<MidNav />
+				<LastNav/>
 			</nav>
 		);
 	}
