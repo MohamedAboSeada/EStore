@@ -58,7 +58,7 @@ const FeaturedProducts = () => {
         key={index}
         className={`product-item ${product.isSoldOut ? 'sold-out' : ''} ${product.isDiscounted ? 'discount' : ''} ${product.isHot ? 'hot' : ''}`}
       >
-        <img onClick={()=>navigate(`product/${product.id}`)} src={product.image} alt="Product" width={product.isSoldOut || product.isHot ? 100 : undefined} />
+        <img onClick={()=>navigate(`shop/${product.id}`)} src={product.image} alt="Product" width={product.isSoldOut || product.isHot ? 100 : undefined} />
         <div className="product-info">
           {product.badgeText && <div className={`badge ${product.isSoldOut ? 'sold-out-badge' : 'discount-badge'}`}></div>}
           {product.discountText && !product.isSoldOut && <div className="badge discount-badge">{product.discountText}</div>}

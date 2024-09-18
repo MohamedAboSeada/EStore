@@ -12,7 +12,6 @@ class Nav extends Component {
 			<nav>
 				<NavWelcome />
 				<MidNav />
-				<LastNav/>
 			</nav>
 		);
 	}

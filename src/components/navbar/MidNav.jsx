@@ -42,6 +42,14 @@ function MidNav() {
 	useClickOutside(dropdown);
 	useClickOutside(menu);
 
+	let handleLogOut = () => {
+		let sure = window.confirm('Are you sure you want to logout ?');
+		if (sure) {
+			SignOut();
+			navigate('/register');
+		}
+	};
+
 	return (
 		<div className='mid_nav tw-bg-blue-950 tw-relative'>
 			<div className='container tw-flex tw-items-center tw-justify-between'>
@@ -134,14 +142,13 @@ function MidNav() {
 								</Link>
 							</li>
 							<li className='dropdown__item'>
-								<Link
+								<a
 									className='dropdown__link'
-									to='/register'
-									onClick={() => SignOut()}
+									onClick={handleLogOut}
 								>
 									<i className='fas fa-right-from-bracket'></i>
 									Log Out
-								</Link>
+								</a>
 							</li>
 						</ul>
 					</button>

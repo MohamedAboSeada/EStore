@@ -30,12 +30,6 @@ export default function ProductItem({
 				<img src={image} alt='Product' className='product-image' />
 				<div className='middle'>
 					<div className='icons'>
-						<button className='icon' onClick={() => addToWhish()}>
-							<i className='fa-regular fa-heart'></i>
-						</button>
-						<button className='icon' onClick={() => addToCart()}>
-							<i className='fa-solid fa-cart-shopping'></i>
-						</button>
 						<button
 							className='icon'
 							onClick={() => navigate(`/shop/${id}`)}
