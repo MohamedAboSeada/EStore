@@ -1,0 +1,45 @@
+.contentsService{
+background: hsl(204, 69%, 34%);
+height: 500px;
+display: flex;
+justify-content: center;
+align-items: center;
+color: white;
+
+}
+.contentsService img{
+    margin-left:20px;
+}
+.contentsService input{
+    padding: 15px 150px;
+}
+.inputContainer {
+    position: relative;
+}
+.inputContainer button{
+    position: absolute;
+    right: 20px ;
+    bottom: 5px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: 0;
+    background: #FA8232;
+    color: white;
+
+}
+@media (max-width:750px) {
+    .contentsService input{
+        padding: 10px 40px;
+    }
+    .inputContainer button{
+        position: absolute;
+        right: 40px ;
+        bottom: 5px;
+        padding: 6px 5px;
+        border-radius: 5px;
+        border: 0;
+        background: #FA8232;
+        color: white;
+    
+    }
+}

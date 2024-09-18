@@ -1,13 +1,5 @@
 import React from "react";
 import "./BestDeals.css"; // استيراد ملف CSS الخاص بالمكون
-import pic from "../Images/carsol1.png";
-import plane from "../Images/plane.png";
-import camera from "../Images/camera.png";
-import playstation from "../Images/playstation.png";
-import phone2 from "../Images/phone2.png";
-import screen from "../Images/screen.png";
-import games from "../Images/games.png";
-import playstation2 from "../Images/playstation2.png";
 import { getProducts } from "../../../API/ProductsAPI.mjs";
 import { useNavigate } from "react-router-dom";
 const BestDeals = () => {

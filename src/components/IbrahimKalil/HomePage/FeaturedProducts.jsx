@@ -1,15 +1,8 @@
 import React from "react";
-import pic from "../Images/carsol1.png";
-import plane from "../Images/plane.png";
-import camera from "../Images/camera.png";
-import playstation from "../Images/playstation.png";
-import phone2 from "../Images/phone2.png";
-import screen from "../Images/screen.png";
-import games from "../Images/games.png";
-import playstation2 from "../Images/playstation2.png";
 import somethings from "../Images/somethings.jpg";
 import { getProducts } from "../../../API/ProductsAPI.mjs";
 import "./FeaturedProducts.css";
+import { useNavigate } from "react-router-dom";
 
 const FeaturedProducts = () => {
   const [products, setProducts] = React.useState([]);
@@ -20,7 +13,11 @@ const FeaturedProducts = () => {
       setProducts(data);
     });
   }, [page]);
-
+  const getFirstFourWords = (text) => {
+    const words = text.split(' ');
+    return words.slice(0, 4).join(' ') + (words.length > 4 ? '...' : '');
+  };
+  const navigate=useNavigate()
   return (
    <div className="container">
      <div className="featured-products-container">
@@ -29,7 +26,7 @@ const FeaturedProducts = () => {
           <p className="category-title">COMPUTER & ACCESSORIES</p>
           <h4 className="discount">32% Discount</h4>
           <p className="description">For all electronics products</p>
-          <div className="offer-end">
+          <div className="offer-end" >
             <p>Offers ends in:</p>
             <h6 className="offer-end-date">ENDS OF CHRISTMAS</h6>
           </div>
@@ -56,107 +53,28 @@ const FeaturedProducts = () => {
           </ul>
         </div>
         <div className="products-grid">
-          <div className="product-item sold-out">
-            <img width={100} height={100} src={camera} alt="Product" />
-            <div className="product-info">
-              <div className="badge sold-out-badge">SOLD OUT</div>
-              <div className="rating">
-                {[...Array(4)].map((_, i) => <i key={i} className="fa-solid fa-star"></i>)}
-                <p>(738)</p>
-              </div>
-              <h5>Bose Sport Earbuds - Wireless Earphones - Bluetooth In Ear...</h5>
-              <p className="price">$442.12</p>
-            </div>
+         {products.slice(1,9).map((product, index) => (
+      <div
+        key={index}
+        className={`product-item ${product.isSoldOut ? 'sold-out' : ''} ${product.isDiscounted ? 'discount' : ''} ${product.isHot ? 'hot' : ''}`}
+      >
+        <img onClick={()=>navigate(`product/${product.id}`)} src={product.image} alt="Product" width={product.isSoldOut || product.isHot ? 100 : undefined} />
+        <div className="product-info">
+          {product.badgeText && <div className={`badge ${product.isSoldOut ? 'sold-out-badge' : 'discount-badge'}`}></div>}
+          {product.discountText && !product.isSoldOut && <div className="badge discount-badge">{product.discountText}</div>}
+          <div className="rating">
+            {[...Array(4)].map((_, i) => <i key={i} className="fa-solid fa-star"></i>)}
+            <p>(738)</p>
           </div>
-          <div className="product-item discount">
-            <img src={playstation2} alt="Product" />
-            <div className="product-info">
-              <div className="badge discount-badge">19% OFF</div>
-              <div className="rating">
-                {[...Array(4)].map((_, i) => <i key={i} className="fa-solid fa-star"></i>)}
-                <p>(738)</p>
-              </div>
-              <h5>Simple Mobile 4G LTE Prepaid Smartphone</h5>
-              <p className="price">$442.12</p>
-            </div>
-          </div>
-          <div className="product-item">
-            <img src={phone2} alt="Product" />
-            <div className="product-info">
-              <div className="rating">
-                {[...Array(4)].map((_, i) => <i key={i} className="fa-solid fa-star"></i>)}
-                <p>(738)</p>
-              </div>
-              <h5>4K UHD LED Smart TV with Chromecast Built-in</h5>
-              <p className="price">$442.12</p>
-            </div>
-          </div>
-          <div className="product-item">
-            <img width={100} src={playstation} alt="Product" />
-            <div className="product-info">
-              <div className="rating">
-                {[...Array(4)].map((_, i) => <i key={i} className="fa-solid fa-star"></i>)}
-                <p>(738)</p>
-              </div>
-              <h5>Sony DSCHX8 High Zoom Point & Shoot Camera</h5>
-              <p className="price">$442.12</p>
-            </div>
-          </div>
-          <div className="product-item">
-            <img src={screen} alt="Product" />
-            <div className="product-info">
-              <div className="rating">
-                {[...Array(4)].map((_, i) => <i key={i} className="fa-solid fa-star"></i>)}
-                <p>(738)</p>
-              </div>
-              <h5>Dell Optiplex 7000x7480 All-in-One Computer Monitor</h5>
-              <p className="price">$447.12</p>
-            </div>
-          </div>
-          <div className="product-item discount">
-            <img src={plane} alt="Product" />
-            <div className="product-info">
-              <div className="rating">
-                {[...Array(4)].map((_, i) => <i key={i} className="fa-solid fa-star"></i>)}
-                <p>(738)</p>
-              </div>
-              <h5>Portable Washing Machine, 11lbs capacity Model 18NMFIAM</h5>
-              <div className="price">
-                <p className="original-price">$865.99</p>
-                <p className="discounted-price">$70</p>
-              </div>
-            </div>
-          </div>
-          <div className="product-item hot">
-            <img src={games} alt="Product" />
-            <div className="product-info">
-              <div className="badge hot-badge">HOT</div>
-              <div className="rating">
-                {[...Array(4)].map((_, i) => <i key={i} className="fa-solid fa-star"></i>)}
-                <p>(738)</p>
-              </div>
-              <h5>2-Barrel Carburetor Carb 2100 Engine Increase Horsepower</h5>
-              <p className="price">$160</p>
-            </div>
-          </div>
-          <div className="product-item discount">
-            <img src={pic} alt="Product" />
-            <div className="discount-badge">32% OFF</div>
-            <div className="rating">
-              {[...Array(4)].map((_, i) => <i key={i} className="fa-solid fa-star"></i>)}
-              <p>(738)</p>
-            </div>
-            <h5>
-              JBL FLIP 4 - Waterproof <br />
-              Portable Bluetooth <br />
-              Speaker - Black
-            </h5>
-            <div className="price">
-              <p className="original-price">$360</p>
-              <p className="discounted-price">$250</p>
-            </div>
-          </div>
+          <h5>{getFirstFourWords(product.name)}</h5>
+           <div style={{display:'flex',}}>
+           <p style={{color: "#2DA5F3"}} className="price">{product.actual_price}</p>
+           <p style={{marginLeft:'5px'}} className="price">{product.discount_price}</p>
+           </div>
         </div>
+      </div>
+    ))}
+  </div>
       </div>
     </div>
    </div>
