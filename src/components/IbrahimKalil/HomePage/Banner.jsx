@@ -36,7 +36,7 @@ const Banner = () => {
                 <p className='paragraph2'>INTRODUCING NEW</p>
                  <h3 style={{marginTop:'10px',color:'white'}}>{product.name}</h3>
                  <p style={{opacity:'.9',marginBottom:'20px'}}>*Data provided by internal <br /> laboratories. Industry measurment.</p>
-                 <button className='btn'>Shop now  <i class="fa-solid fa-arrow-right"></i></button>
+                 <button onClick={()=>navigate(`product/${product.id}`)} className='btn'>Shop now  <i class="fa-solid fa-arrow-right"></i></button>
                 </div>
            </div>
            <div className="price-tag">

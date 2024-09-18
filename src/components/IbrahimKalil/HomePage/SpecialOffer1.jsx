@@ -112,7 +112,7 @@ const SpecialOffer = () => {
             <div className="product-highlight">
               <img
                 className="highlight-image"
-                src={products[5].image} // Assuming this is the intended highlight product
+                src={products[5].image} 
                 alt={products[5].name}
               />
               <div className="highlight-details">
