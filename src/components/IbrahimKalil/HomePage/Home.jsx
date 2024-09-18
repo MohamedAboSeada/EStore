@@ -4,6 +4,8 @@ import Features from "./Features";
 import BestDeals from "./BestDeals";
 import Slider from "./Slider";
 import FeaturedProducts from "./FeaturedProducts";
+import Banner from "./Banner";
+import Subscribe from "./Subscribe";
 class Home extends Component {
   constructor() {
     super()
@@ -11,11 +13,13 @@ class Home extends Component {
   render() {
     return (
      <div>
-		  <SpecialOffer/>
-      <Features/>
-       <BestDeals/>
-       <Slider/>
-       <FeaturedProducts/>
+        <SpecialOffer/>
+        <Features/>
+        <BestDeals/>
+        <Slider/>
+        <FeaturedProducts/>
+        <Banner/>
+        <Subscribe/>
 	 </div>
     );
   }

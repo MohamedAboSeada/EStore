@@ -35,6 +35,7 @@
   .offer-end {
     margin-bottom: 20px;
     display:flex;
+    justify-content: center;
     padding: 0px 10px;
   }
   

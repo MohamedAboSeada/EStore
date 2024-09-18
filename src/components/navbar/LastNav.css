@@ -1,0 +1,16 @@
+.lastNavContent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media(max-width:750px){
+    .lastNavContent{
+        display: flex;
+        flex-direction: column;
+    }
+    .btnLastNav{
+        display: flex;
+        flex-direction: column;
+    }
+   
+}

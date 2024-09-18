@@ -1,127 +1,138 @@
-import React, { Component } from "react";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/splide/dist/css/splide.min.css";
+import React, { useState, useEffect } from 'react';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/splide/dist/css/splide.min.css';
 import './SpecialOffers.css';
-import carsol1 from '../Images/carsol1.png';
-import carsol2 from '../Images/carsol2.png';
-import carsol3 from '../Images/carsol3.jpg';
-import NewGoogle from '../Images/NewGoogle.png';
-import airbods from '../Images/airbods.png';
+import { getProducts } from '../../../API/ProductsAPI.mjs';
+import { useNavigate } from 'react-router-dom';
 
-class SpecialOffer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      products: [
-        {
-          id: "1",
-          image: carsol1,
-          description: "Description for Product 1",
-          price: '229$'
-        },
-        {
-          id: "2",
-          image: carsol2,
-          description: "Description for Product 2",
-          price: '559$'
-        },
-        {
-          id: "3",
-          image: carsol3,
-          description: "Description for Product 3",
-          price: '977$'
-        },
-      ],
-    };
+const SpecialOffer = () => {
+  const [products, setProducts] = useState([]);
+  const [page, setPage] = useState(1);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    getProducts(page, (data) => {
+      setProducts(data);
+    });
+  }, [page]);
+
+  const getFirstFourWords = (text) => {
+    const words = text.split(' ');
+    return words.slice(0, 4).join(' ') + (words.length > 4 ? '...' : '');
+  };
+
+  if (products.length === 0) {
+    return <div>Loading...</div>;
   }
-
-  render() {
-    const { products } = this.state;
-
-    return (
-      <div className="container">
-        <div className="row">
-          {/* Carousel Section */}
-          <div className="col-12 col-md-8 carousel-container h-100">
-            <Splide
-              aria-label="Product Carousel"
-              options={{
-                type: 'loop',
-                perPage: 1,
-                arrows: false,
-                pagination: true,
-                autoplay: true,
-                interval: 3000,
-              }}
-            >
-              {products.map((product, index) => (
-                <SplideSlide key={index}>
-                  <div className="carousel-slide">
-                   <div className="contents">
-				   <div className="carousel-content">
+ 
+  return (
+    <div className="container">
+      <div className="row">
+        {/* Carousel Section */}
+        <div className="col-12 col-md-8 carousel-container h-100">
+          <Splide
+            aria-label="Product Carousel"
+            options={{
+              type: 'loop',
+              perPage: 1,
+              arrows: false,
+              pagination: true,
+              autoplay: true,
+              interval: 3000,
+            }}
+          >
+            {products.slice(9, 12).map((product) => (
+              <SplideSlide key={product.id}>
+                <div className="carousel-slide">
+                  <div className="contents">
+                    <div className="carousel-content">
                       <div className="carousel-header">
                         <div className="header-line"></div>
-                        <p>THE BEST PLACE TO PLAY</p>
+                        <p style={{ color: "#2484C2" }}>THE BEST PLACE TO PLAY</p>
                       </div>
-                      <h1>Xbox Consoles</h1>
-                      <h5>Save up to 50% on select Xbox games. Get 3 months of PC Game Pass for $2 USD.</h5>
-                      <button style={{color:'white',background: '#FA8232'}} className="btn shop-button">
+                      <h1>{getFirstFourWords(product.main_category)}</h1>
+                      <h5>{product.name}</h5>
+                      <button
+                        style={{ color: 'white', background: '#FA8232' }}
+                        className="btn shop-button"  onClick={()=>navigate(`product/${product.id}`)}
+                      >
                         Shop Now
                         <i className="fa-solid fa-arrow-right"></i>
                       </button>
                     </div>
                     <div className="carousel-image-wrapper">
                       <img
+                        style={{ width: '300px' }}
                         className="carousel-image"
                         src={product.image}
-                        alt={`Product ${index}`}
+                        alt={`Product ${product.id}`}
                       />
-                      <div className="price-tag">
-                        {product.price}
-                      </div>
+                      <div className="price-tag">{product.actual_price}</div>
                     </div>
-				   </div>
                   </div>
-                </SplideSlide>
-              ))}
-            </Splide>
-          </div>
+                </div>
+              </SplideSlide>
+            ))}
+          </Splide>
+        </div>
 
-          {/* Sidebar Section */}
-          <div className="col-12 col-md-4 sidebar-container">
-            <div className="sale-banner">
-             <div className="contents">
-			 <div className="sale-content">
-                <h6 className="sale-title">SUMMER SALES</h6>
-                <h4 className="sale-description">New Google <br />
-					Pixel 6 Pro</h4>
-                <button style={{color:'white',background: '#FA8232'}} className="btn shop-button">
-                  Shop Now
-                  <i className="fa-solid fa-arrow-right"></i>
-                </button>
-              </div>
-              <div className="sale-image-wrapper">
-                <div className="discount-badge">29% OFF</div>
-                <img className="sale-image" src={NewGoogle} alt="Google Pixel 6 Pro" />
+        {/* Sidebar Section */}
+        <div className="col-12 col-md-4 sidebar-container">
+          {products.slice(1, 2).map((item) => (
+            <div key={item.id} className="sidebar-item">
+              <div className="sale-banner">
+                <div className="contents">
+                  <div className="sale-content">
+                    <h6 className="sale-title">{getFirstFourWords(item.main_category)}</h6>
+                    <h4 className="sale-description">{getFirstFourWords(item.name)}</h4>
+                    <button
+                      style={{ color: 'white', background: '#FA8232' }}
+                      className="btn shop-button"
+                      onClick={() => navigate(`/product/${item.id}`)}
+                    >
+                      Shop Now
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                  <div className="sale-image-wrapper">
+                    <div className="discount-badge">{item.discount_price}</div>
+                    <img
+                      style={{ width: '97px' }}
+                      className="sale-image"
+                      src={item.image}
+                      alt={item.name}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-			 </div>
+          ))}
+
+          {products.length > 5 && (
             <div className="product-highlight">
-              <img className="highlight-image" src={airbods} alt="Xiaomi FlipBuds Pro" />
+              <img
+                className="highlight-image"
+                src={products[5].image} 
+                alt={products[5].name}
+              />
               <div className="highlight-details">
-                <h4>Xiaomi <br /> FlipBuds Pro</h4>
-                <h4>$299 USD</h4>
-                <button style={{color:'white',background: '#FA8232'}} className="btn shop-button">
+                <h4>{products[5].name}</h4>
+                <h4>{products[5].actual_price}</h4>
+                <button
+                  style={{ color: 'white', background: '#FA8232' }}
+                  className="btn shop-button"
+                  onClick={() => navigate(`/product/${products[5].id}`)}
+                >
                   Shop Now
                   <i className="fa-solid fa-arrow-right"></i>
                 </button>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default SpecialOffer;

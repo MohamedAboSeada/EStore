@@ -27,7 +27,7 @@
   .carousel-slide {
     display: flex;
     align-items: center;
-    height: 100%;
+    min-height: 470px;
   }
   
   .carousel-content {

@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { getProducts } from "../../../API/ProductsAPI.mjs";
 import "./Slider.css";
-
+import { useNavigate } from "react-router-dom";
 const Slider = () => {
   const [products, setProducts] = useState([]);
   const scrollContainerRef = useRef(null);
@@ -24,7 +24,7 @@ const Slider = () => {
       scrollContainerRef.current.scrollBy({ left: -250, behavior: "smooth" });
     }
   };
-
+    const navigate=useNavigate()
   return (
     <section className="slider py-8 container">
         <h3 style={{textAlign:'center',paddingBottom:"90px"}}>Shop with Categorys</h3>
@@ -41,6 +41,7 @@ const Slider = () => {
                 style={{ height: "400px" }}
               >
                 <img
+                   onClick={()=>navigate(`product/${product.id}`)}
                   src={product.image || 'https://via.placeholder.com/400'}
                   alt={product.name}
                   className="slider-image"

@@ -6,7 +6,7 @@ import Package from '../Images/Package.png'
 import './Features.css'
 const Features = () => {
   return (
-      <div style={{display:'flex',justifyContent:'space-between'}} className="container content">
+      <div style={{display:'flex',justifyContent:'space-between'}} className="container content  m-auto">
           <div className='containerDiv' style={{display:'flex'}}>
             <div>
                 <img src={trophy} alt="" />
