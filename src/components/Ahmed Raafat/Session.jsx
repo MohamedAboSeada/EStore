@@ -11,20 +11,29 @@ export class Session extends Component {
 
           <div className="container">
             <div className="row">
-              <div className="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 col-xxl-3 mb-4">
 
 
+              
+                <div className="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 col-xxl-3 mb-4">
                 <div className="teamMember">
+
                   <div className="sessionImg">
                     <img src="./images/kevin.png" alt="error"></img>
                     
                   </div>
 
-                  <div className="content">
+
+                  <div>
                   <h5 className="sessionHeader">Kevin Gilbert</h5>
                   <span className="sessionSpan">Chief Executive Officer</span>
+                    
                   </div>
+
+
+
                 </div>
+
+
                 {/* ///////////////////////////////////////////////////// */}
 
                 <div className="teamMember">

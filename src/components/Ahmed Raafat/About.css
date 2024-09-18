@@ -44,6 +44,14 @@
   /* flex-wrap: wrap; */
 
 }
+.Main{
+  display: flex;
+  flex-direction: column;
+}
+.firstHeader1 span{
+  
+  padding-top: 30px;
+}
 
 .firstHeader2 {
   font-size: 40px;
@@ -65,7 +73,7 @@
   /* margin-top: -500px; */
   /* flex-direction:row ;
   flex-wrap: wrap; */
-  width: 50%;
+  width: 70%;
 
 
 
@@ -138,6 +146,25 @@
 
 .content {
   margin: 0px;
+}
+
+@media (max-width: 768px) {
+  .teamMember {
+      flex-direction: row; /* Ensure items remain side by side on mobile */
+  }
+
+  .sessionImg img {
+      width: 60px; /* Adjust size for smaller screens */
+      height: 60px; /* Ensure aspect ratio is maintained */
+  }
+
+  h5.sessionHeader {
+      font-size: 16px; /* Slightly smaller text on mobile */
+  }
+
+  span.sessionSpan {
+      font-size: 12px;
+  }
 }
 
 

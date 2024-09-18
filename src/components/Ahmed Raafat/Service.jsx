@@ -7,31 +7,40 @@ class Service extends Component {
       <>
         <div>
           {/* first component */}
+          
 
-          <div className="firstMain">
-            <div className="firstImg">
-              <div className="firstContent">
-                <div>
-                  <span className="firstHeader">HELP CENTER</span>
-                </div>
-                <div>
-                  <h2 className="secondHeader">How we can help you!</h2>
-                </div>
-                <form className="search-form">
-                  <div className="search">
-                    <input
-                      type="text"
-                      placeholder="Enter your question or keyword"
-                      class="search-input"
-                    />
-                    <button type="submit" class="search-button">
-                      Search
-                    </button>
-                  </div>
-                </form>
+
+          <div className="firstMain ">
+           
+            <div className="firstContent">
+              <div>
+                <span className="firstHeader">HELP CENTER</span>
               </div>
+              <div>
+                <h2 className="secondHeader">How we can help you!</h2>
+              </div>
+              <form className="search-form">
+                <div className="search">
+                  <input
+                    type="text"
+                    placeholder="Enter your question or keyword"
+                    class="search-input"
+                  />
+                  <button type="submit" class="search-button">
+                    Search
+                  </button>
+                </div>
+              </form>
+            </div>
+             <div className="firstImg">
+              <img src="./images/service.png" alt="Description of image" className="sideImage" />
             </div>
           </div>
+
+
+
+
+
 
           {/* done ...................................................................................  */}
 
@@ -194,13 +203,13 @@ class Service extends Component {
                       <img src="./images/conect.png" alt="Icon" />
                     </div>
                     <div className="content">
-                      <h3>Call us now</h3>
+                      <h3 className="TitleCallUs">Call us now</h3>
                       <p>
                         We are available online from 9:00 AM to 5:00 PM
                         (GMT+5:45). Talk with us now.
                       </p>
                       <h4>+1-202-555-0126</h4>
-                      <button className="btn1">Call now</button>
+                      <button className="btn4">Call now</button>
                     </div>
                   </div>
                 </div>
@@ -218,7 +227,7 @@ class Service extends Component {
                         (GMT+5:45). Talk with us now.
                       </p>
                       <h4>Support@clicon.com</h4>
-                      <button className="btn2">Contact Us</button>
+                      <button className="btn3">Contact Us</button>
                     </div>
                   </div>
                 </div>
