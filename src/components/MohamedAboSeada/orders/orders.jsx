@@ -12,7 +12,11 @@ function OrderProvider({ children }) {
 
 	// fetch orders
 	async function fetchOrders() {
-		const { data, error } = await supabase.from('orders').select('*');
+		const { data, error } = await supabase
+			.from('orders')
+			.select('*')
+			.eq('user_id', user.id)
+			.select();
 		if (!error) {
 			setOrders(data);
 		}
@@ -20,8 +24,10 @@ function OrderProvider({ children }) {
 
 	// fetch and set orders on mount
 	useEffect(() => {
-		fetchOrders();
-	}, [orders]);
+		if (user) {
+			fetchOrders();
+		}
+	}, [user,orders]);
 
 	// create order
 	let makeOrder = async () => {
