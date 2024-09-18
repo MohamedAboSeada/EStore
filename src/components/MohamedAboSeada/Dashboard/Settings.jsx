@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../RegisterPage/helper/handleAuthentication';
 import { GetUser, UpdateUser } from '../RegisterPage/helper/Users';
@@ -15,6 +15,7 @@ function Settings() {
 	});
 
 	let [loading, setLoading] = useState(true);
+	let updateSuccess = useRef(null);
 
 	useEffect(() => {
 		let fetchUserData = async () => {
@@ -49,14 +50,22 @@ function Settings() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		UpdateUser(user.id, {
+		let error = UpdateUser(user.id, {
 			phone: userData.phone,
 			email: userData.email,
 			address: userData.address,
 			image: userData.image,
 			name: userData.name,
 		});
-		console.log('data has updated !');
+
+		error.then((data) => {
+			if (!data) {
+				updateSuccess.current.classList.add('show');
+				setTimeout(() => {
+					updateSuccess.current.classList.remove('show');
+				}, 2000);
+			}
+		});
 	};
 
 	return loading ? (
@@ -146,6 +155,13 @@ function Settings() {
 					Save Changes
 				</button>
 			</form>
+			<div
+				ref={updateSuccess}
+				className='success_msg alert alert-success'
+			>
+				<i className='fas fa-check'></i>
+				user data updated Successfully !
+			</div>
 		</div>
 	);
 }

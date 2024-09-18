@@ -1,16 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 import CartItem from './CartItem';
 import { CartContext } from './CartContext';
+import { OrderContext } from '../../MohamedAboSeada/orders/orders';
 import { Link } from 'react-router-dom';
+
 import './CartItem.css';
 
-let extractPrice = (priceString) => {
+export let extractPrice = (priceString) => {
 	return parseFloat(priceString.replace(/[^0-9.-]+/g, ''));
 };
 
 const Cart = () => {
 	let { cart, addProduct, removeProduct, clearProduct } =
 		useContext(CartContext);
+	let { makeOrder } = useContext(OrderContext);
 	let [total, setTotal] = useState(0);
 
 	useEffect(() => {
@@ -53,7 +56,12 @@ const Cart = () => {
 					</h2>
 				)}
 
-				<button className='tw-py-3 tw-bg-orange-500 hover:tw-bg-orange-600 tw-border-none tw-text-slate-200 tw-text-lg tw-flex tw-items-center tw-justify-center tw-gap-3'>
+				<button
+					onClick={() => {
+						makeOrder();
+					}}
+					className='tw-py-3 tw-bg-orange-500 hover:tw-bg-orange-600 tw-border-none tw-text-slate-200 tw-text-lg tw-flex tw-items-center tw-justify-center tw-gap-3'
+				>
 					Make Order
 					<i className='fas fa-arrow-right'></i>
 				</button>

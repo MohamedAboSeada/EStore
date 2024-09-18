@@ -1,15 +1,24 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState, useContext, useRef } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { CartContext } from '../Cart/CartContext';
 import { getProductByID } from '../../../API/ProductsAPI.mjs';
+import { AuthContext } from '../../MohamedAboSeada/RegisterPage/helper/handleAuthentication';
+import { WhishListContext } from '../../MohamedAboSeada/Dashboard/WhishListContext';
 import Fancybox from '../Fancybox';
+import './ProductDetail.css';
 
 function ProductDetails() {
 	const { id } = useParams();
 	const [product, setProduct] = useState(null);
 	const [loading, setLoading] = useState(true);
+	const { addProduct } = useContext(CartContext);
+	const { user } = useContext(AuthContext);
+	let { addProductToWhishlist } = useContext(WhishListContext);
 
-	let { addProduct } = useContext(CartContext);
+	let navigate = useNavigate();
+
+	let CartSuccess = useRef(null);
+	let WhishSuccess = useRef(null);
 
 	useEffect(() => {
 		getProductByID(id, function (data) {
@@ -17,6 +26,32 @@ function ProductDetails() {
 			setLoading(false);
 		});
 	}, [id]);
+
+	let handleAddToCart = () => {
+		if (!user) {
+			navigate('/register');
+		} else {
+			addProduct(product);
+			// success message
+			CartSuccess.current.classList.add('show');
+			setTimeout(() => {
+				CartSuccess.current.classList.remove('show');
+			}, 2000);
+		}
+	};
+
+	let handleAddToWhishlist = () => {
+		if (!user) {
+			navigate('/register');
+		} else {
+			addProductToWhishlist(product);
+			// success message
+			WhishSuccess.current.classList.add('show');
+			setTimeout(() => {
+				WhishSuccess.current.classList.remove('show');
+			}, 2000);
+		}
+	};
 
 	return (
 		<>
@@ -120,14 +155,17 @@ function ProductDetails() {
 										<div className='tw-flex'>
 											<button
 												onClick={() =>
-													addProduct(product)
+													handleAddToCart()
 												}
 												className='tw-flex tw-items-center tw-gap-3 tw-ml-auto tw-text-white tw-bg-yellow-500 tw-border-0 tw-py-2 tw-px-6 focus:tw-outline-none hover:tw-bg-yellow-600 tw-rounded'
 											>
 												<i className='fas fa-cart-shopping'></i>
 												Add To Cart
 											</button>
-											<button className='tw-rounded-full tw-w-10 tw-h-10 tw-bg-gray-200 tw-p-0 tw-border-0 tw-inline-flex tw-items-center tw-justify-center tw-text-gray-500 tw-ml-4'>
+											<button
+												onClick={handleAddToWhishlist}
+												className='tw-rounded-full tw-w-10 tw-h-10 tw-bg-gray-200 tw-p-0 tw-border-0 tw-inline-flex tw-items-center tw-justify-center tw-text-gray-500 tw-ml-4'
+											>
 												<svg
 													fill='currentColor'
 													stroke-linecap='round'
@@ -146,6 +184,20 @@ function ProductDetails() {
 						</div>
 					</>
 				)}
+				<div
+					ref={CartSuccess}
+					className='success_msg alert alert-success'
+				>
+					<i className='fas fa-check'></i>
+					Added To Cart Successfully !
+				</div>
+				<div
+					ref={WhishSuccess}
+					className='success_msg alert alert-success'
+				>
+					<i className='fas fa-check'></i>
+					Added To Whishlist Successfully !
+				</div>
 			</section>
 		</>
 	);

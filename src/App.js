@@ -4,7 +4,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // static components
 import Nav from './components/navbar/Nav';
 import Footer from './components/Footer/Footer';
+
+import Service from './components/Ahmed Raafat/Service';
+import About from './components/Ahmed Raafat/About';
 import BreadChrumb from './components/navbar/BreadChrumb';
+
 // IbrahimKhalil
 import Home from './components/IbrahimKalil/HomePage/Home';
 
@@ -13,7 +17,7 @@ import RegisterForm from './components/MohamedAboSeada/RegisterPage/RegisterForm
 import { AuthProvider } from './components/MohamedAboSeada/RegisterPage/helper/handleAuthentication';
 import { CartProvider } from './components/MariamElagamii/Cart/CartContext';
 import { WhishListProvider } from './components/MohamedAboSeada/Dashboard/WhishListContext';
-
+import { OrderProvider } from './components/MohamedAboSeada/orders/orders';
 // Dashboard
 import Dashboard from './components/MohamedAboSeada/Dashboard/Dashboard';
 import UserData from './components/MohamedAboSeada/Dashboard/UserData';
@@ -35,64 +39,74 @@ class App extends React.Component {
 				<AuthProvider>
 					<CartProvider>
 						<WhishListProvider>
-							<Nav />
-							<BreadChrumb />
-							<Routes>
-								{/* home page */}
-								<Route path='/' element={<Home />}></Route>
-								{/* Cart Route */}
-								<Route path='/cart' element={<Cart />}></Route>
-								{/* Product Route */}
+							<OrderProvider>
+								<Nav />
+								<BreadChrumb />
+								{/* routes */}
+								<Routes>
+									<Route path='/' element={<Home />}></Route>
+									{/* customer service */}
+									<Route
+										path='customer-service'
+										element={<Service />}
+									></Route>
 
-								{/* Register Routes */}
-								<Route
-									path='/register'
-									element={<RegisterForm />}
-								></Route>
+									{/* about */}
+									<Route
+										path='about'
+										element={<About />}
+									></Route>
 
-								{/* dashboard page */}
-								<Route
-									path='/dashboard'
-									element={
-										<ProtectedRoute>
-											<Dashboard />
-										</ProtectedRoute>
-									}
-								>
+									{/* shop */}
 									<Route
-										path='user-data'
-										element={<UserData />}
+										path='/shop'
+										element={<ProductList />}
 									></Route>
 									<Route
-										path='order-history'
-										element={<OrderHistory />}
+										path='/shop/:id'
+										element={<ProductDetails />}
 									></Route>
-									<Route
-										path='cart'
-										element={<Cart />}
-									></Route>
-									<Route
-										path='whishlist'
-										element={<Whishlist />}
-									></Route>
-									<Route
-										path='settings'
-										element={<Settings />}
-									></Route>
-								</Route>
 
-								{/* products list page */}
-								<Route
-									path='/shop'
-									element={<ProductList />}
-								></Route>
-								<Route
-									path='product/:id'
-									element={<ProductDetails />}
-								></Route>
-							</Routes>
+									{/* dashboard */}
+									<Route
+										path='/dashboard'
+										element={
+											<ProtectedRoute>
+												<Dashboard />
+											</ProtectedRoute>
+										}
+									>
+										<Route
+											path='user-data'
+											element={<UserData />}
+										></Route>
+										<Route
+											path='order-history'
+											element={<OrderHistory />}
+										></Route>
+										<Route
+											path='cart'
+											element={<Cart />}
+										></Route>
+										<Route
+											path='whishlist'
+											element={<Whishlist />}
+										></Route>
+										<Route
+											path='settings'
+											element={<Settings />}
+										></Route>
+									</Route>
 
-							<Footer />
+									{/* Register Routes */}
+									<Route
+										path='/register'
+										element={<RegisterForm />}
+									></Route>
+								</Routes>
+								{/* routes */}
+								<Footer />
+							</OrderProvider>
 						</WhishListProvider>
 					</CartProvider>
 				</AuthProvider>

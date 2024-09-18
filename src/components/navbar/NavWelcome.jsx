@@ -1,46 +1,34 @@
 import React, { Component } from 'react';
 
+let links = [
+	'fa-facebook',
+	'fa-twitter',
+	'fa-linkedin',
+	'fa-reddit',
+	'fa-github',
+];
+
 export class NavWelcome extends Component {
 	render() {
 		return (
-			<div className='welcome__header'>
-				<div className='container'>
-					<p className='welcome__header-text' href='#'>
+			<div className='welcome__header tw-bg-blue-950 tw-border-blue-900'>
+				<div className='container tw-flex tw-items-center tw-justify-between'>
+					<p className='tw-text-white tw-m-0 tw-hidden md:tw-block' href='#'>
 						Welcome to EStore online eCommerce store
 					</p>
-					<div className='welcome__links'>
-						<p className='welcome__links-text'>Follow us:</p>
-						<ul class='socail'>
-							<li>
-								<a className='scoail__link' href='#'>
-									<i className='fab fa-facebook'></i>
-								</a>
-							</li>
-							<li>
-								<a className='scoail__link' href='#'>
-									<i className='fab fa-twitter'></i>
-								</a>
-							</li>
-							<li>
-								<a className='scoail__link' href='#'>
-									<i className='fab fa-pinterest'></i>
-								</a>
-							</li>
-							<li>
-								<a className='scoail__link' href='#'>
-									<i className='fab fa-reddit'></i>
-								</a>
-							</li>
-							<li>
-								<a className='scoail__link' href='#'>
-									<i className='fab fa-linkedin'></i>
-								</a>
-							</li>
-							<li>
-								<a className='scoail__link' href='#'>
-									<i className='fab fa-github'></i>
-								</a>
-							</li>
+					<div className='tw-flex tw-items-center tw-space-x-2'>
+						<p className='tw-text-white tw-m-0'>Follow us:</p>
+						<ul class='tw-list-none tw-p-0 tw-m-0 tw-flex tw-items-center tw-space-x-2'>
+							{links.map((link, index) => (
+								<li key={index}>
+									<a
+										href='#'
+										className='tw-text-lg tw-text-white'
+									>
+										<i className={`fab ${link}`}></i>
+									</a>
+								</li>
+							))}
 						</ul>
 					</div>
 				</div>

@@ -1,7 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef } from 'react';
 import useInnerWidth from '../MariamElagamii/Cart/useInnerWidth';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../MohamedAboSeada/RegisterPage/helper/handleAuthentication';
+import useClickOutside from './clickOutside';
+
 let items = [
 	{
 		name: 'Home',
@@ -21,81 +23,146 @@ let items = [
 	},
 ];
 
+let btns = [
+	{
+		1: 'fas fa-user',
+		2: 'fas fa-user-plus',
+	},
+	'fas fa-bars',
+];
+
 // desktop tw-items-center tw-space-x-3
 function MidNav() {
+	let menu = useRef(null);
+	let dropdown = useRef(null);
 	let innerWidth = useInnerWidth();
-	let { user } = useContext(AuthContext);
+	let { user, SignOut } = useContext(AuthContext);
 	let navigate = useNavigate();
-	let [isNavOpen, setIsNavOpen] = useState(false);
 
-	let handleUserButton = () => {
-		if (user) {
-			navigate('/dasboard/user-data');
-		}
-	};
+	useClickOutside(dropdown);
+	useClickOutside(menu);
 
 	return (
-		<div className='tw-bg-blue-900 tw-relative'>
-			{/* logo */}
+		<div className='mid_nav tw-bg-blue-950 tw-relative'>
 			<div className='container tw-flex tw-items-center tw-justify-between'>
-				<div className='tw-flex tw-items-center tw-space-x-5'>
-					<h3 className='tw-uppercase tw-font-bold tw-text-white tw-m-0'>
-						Estore
-					</h3>
-					<ul
-						className={`tw-list-none tw-flex tw-px-3 tw-py-4 m-0 tw-transition-all tw-absolute tw-top-full tw-bg-stone-950 tw-left-0 tw-flex-col tw-z-50 tw-w-full tw-space-y-2 tw-items-start ${
-							isNavOpen && innerWidth <= 600
-								? 'tw-opacity-100'
-								: 'tw-opacity-0'
-						}`}
-					>
-						{items.map((item, index) => (
-							<li key={index}>
-								<NavLink
-									className={({ isActive }) =>
-										`tw-capitalize tw-no-underline tw-text-lg tw-font-[600] ${
-											isActive
-												? 'tw-text-orange-300'
-												: 'tw-text-gray-300'
-										}`
-									}
-									to={item.linkTo}
-								>
-									{item.name}
-								</NavLink>
-							</li>
-						))}
-					</ul>
-				</div>
+				{/* logo */}
+				<Link
+					to='/'
+					className='tw-m-0 tw-no-underline tw-text-3xl tw-uppercase tw-text-white tw-font-bold tw-tracking-wider'
+				>
+					ESTORE
+				</Link>
+
+				{/* nav menu */}
+				<ul
+					ref={menu}
+					className={`nav__menu ${innerWidth <= 600 ? 'hide' : ''}`}
+				>
+					{items.map((item) => (
+						<li className='nav__item'>
+							<NavLink
+								className={({ isActive }) =>
+									`nav__link ${
+										isActive
+											? 'tw-text-orange-300'
+											: 'tw-text-white'
+									}`
+								}
+								to={item.linkTo}
+							>
+								{item.name}
+							</NavLink>
+						</li>
+					))}
+				</ul>
+
+				{/* nav buttons */}
 				<div className='tw-flex tw-items-center tw-space-x-2'>
+					<button
+						onClick={() => {
+							if (user) {
+								dropdown.current.classList.toggle('hide');
+							} else {
+								navigate('/register');
+							}
+						}}
+						className='tw-border-none tw-relative tw-bg-blue-500 tw-text-white tw-w-[50px] tw-h-[50px] tw-rounded-md tw-text-lg tw-grid tw-place-items-center tw-no-underline'
+					>
+						<i
+							className={`fas ${
+								user ? 'fa-user' : 'fa-user-plus'
+							}`}
+						></i>
+						<ul
+							ref={dropdown}
+							className='dropdown hide tw-absolute tw-right-0 tw-z-50 tw-m-0 tw-p-0 tw-list-none tw-bg-white tw-rounded-md shadow-sm'
+						>
+							<li className='dropdown__item'>
+								<Link
+									className='dropdown__link'
+									to='/dashboard/user-data'
+								>
+									<i className='fas fa-user'></i>
+									Profile
+								</Link>
+							</li>
+							<li className='dropdown__item'>
+								<Link
+									className='dropdown__link'
+									to='/dashboard/cart'
+								>
+									<i className='fas fa-cart-shopping'></i>
+									Cart
+								</Link>
+							</li>
+							<li className='dropdown__item'>
+								<Link
+									className='dropdown__link'
+									to='/dashboard/whishlist'
+								>
+									<i className='fas fa-heart'></i>
+									Whishlist
+								</Link>
+							</li>
+							<li className='dropdown__item'>
+								<Link
+									className='dropdown__link'
+									to='/dashboard/settings'
+								>
+									<i className='fas fa-gear'></i>
+									Settings
+								</Link>
+							</li>
+							<li className='dropdown__item'>
+								<Link
+									className='dropdown__link'
+									to='/register'
+									onClick={() => SignOut()}
+								>
+									<i className='fas fa-right-from-bracket'></i>
+									Log Out
+								</Link>
+							</li>
+						</ul>
+					</button>
 					{innerWidth <= 600 && (
 						<button
-							onClick={() => setIsNavOpen(!isNavOpen)}
-							className='tw-border-none tw-w-[45px] tw-h-[45px] tw-bg-blue-500 tw-text-white tw-text-lg tw-rounded-md'
+							onClick={() => {
+								if (innerWidth <= 600) {
+									menu.current.classList.toggle('hide');
+								} else {
+									if (
+										menu.current.classList.contains('hide')
+									) {
+										menu.current.classList.remove('hide');
+									}
+								}
+							}}
+							className='tw-border-none tw-bg-blue-500 tw-text-white tw-w-[50px] tw-h-[50px] tw-rounded-md tw-text-lg'
 						>
 							<i className='fas fa-bars'></i>
 						</button>
 					)}
-					{user && (
-						<>
-							<button className='tw-border-none tw-w-[45px] tw-h-[45px] tw-bg-blue-500 tw-text-white tw-text-lg tw-rounded-md'>
-								<i className='fas fa-heart'></i>
-							</button>
-							<button className='tw-border-none tw-w-[45px] tw-h-[45px] tw-bg-blue-500 tw-text-white tw-text-lg tw-rounded-md'>
-								<i className='fas fa-cart-shopping'></i>
-							</button>
-						</>
-					)}
-					<button
-						onClick={handleUserButton}
-						className='tw-border-none tw-w-[45px] tw-h-[45px] tw-bg-blue-500 tw-text-white tw-text-lg tw-rounded-md'
-					>
-						{user ? (
-							<i className='fas fa-user'></i>
-						) : (
-							<i className='fas fa-user-plus'></i>
-						)}
-					</button>
 				</div>
 			</div>
 		</div>

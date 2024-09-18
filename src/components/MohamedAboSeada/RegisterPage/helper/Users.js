@@ -15,6 +15,7 @@ export async function UpdateUser(userId, userData) {
 		.update({ ...userData })
 		.eq('id', userId)
 		.select();
+	return error;
 }
 
 export async function DeleteUser(userId) {

@@ -11,9 +11,12 @@ const BreadChrumb = () => {
 		<nav className='tw-bg-slate-100'>
 			<ol className='container tw-flex tw-list-none tw-space-x-3 tw-m-0 tw-p-0'>
 				<li className=''>
-					<p className='tw-text-gray-600 tw-m-0 tw-no-underline tw-uppercase tw-font-[600]'>
+					<Link
+						to='/'
+						className='tw-text-gray-600 tw-m-0 tw-no-underline tw-uppercase tw-font-[600]'
+					>
 						Homepage
-					</p>
+					</Link>
 				</li>
 
 				{pathnames.map((value, index) => {
@@ -34,10 +37,14 @@ const BreadChrumb = () => {
 											value.slice(1)}
 									</p>
 								) : (
-									<p className='tw-text-gray-600 tw-m-0 tw-no-underline tw-uppercase tw-font-[600]'>
+									<Link
+										to={to}
+										href='#'
+										className='tw-text-gray-600 tw-m-0 tw-no-underline tw-uppercase tw-font-[600]'
+									>
 										{value.charAt(0).toUpperCase() +
 											value.slice(1)}
-									</p>
+									</Link>
 								)}
 							</li>
 						</>

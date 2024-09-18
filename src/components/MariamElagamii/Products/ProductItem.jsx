@@ -38,7 +38,7 @@ export default function ProductItem({
 						</button>
 						<button
 							className='icon'
-							onClick={() => navigate(`/product/${id}`)}
+							onClick={() => navigate(`/shop/${id}`)}
 						>
 							<i className='fa-regular fa-eye'></i>
 						</button>

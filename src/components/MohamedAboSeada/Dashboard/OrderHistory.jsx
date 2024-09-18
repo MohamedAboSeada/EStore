@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getOrders } from '../RegisterPage/helper/Orders';
-
+import { OrderContext } from '../orders/orders';
 const tableRows = ['order id', 'status', 'date', 'total', 'action'];
 
 function mapToColor(order_status) {
@@ -18,22 +18,9 @@ function mapToColor(order_status) {
 }
 
 function OrderHistory() {
-	let [orders, setOrders] = useState([]);
-	let [loading, setLoading] = useState(true);
+	let { orders } = useContext(OrderContext);
 
-	// fetch orders
-	useEffect(() => {
-		let fetchOrders = async () => {
-			let { orders } = await getOrders();
-			setOrders(orders);
-			setLoading(false);
-		};
-		fetchOrders();
-	}, [orders]);
-
-	return loading ? (
-		<h1>Loading...</h1>
-	) : (
+	return (
 		<div className='tw-col-span-12 md:tw-col-span-9 tw-border-[1px] tw-border-stone-300 tw-border-solid tw-bg-white tw-rounded-lg tw-shadow-sm'>
 			<h1 className='tw-text-lg m-0 tw-uppercase tw-font-[500] tw-p-3 tw-border-b-[1px] tw-border-solid tw-border-transparent tw-border-b-stone-300'>
 				Order History
@@ -64,10 +51,16 @@ function OrderHistory() {
 								</span>
 							</th>
 							<th className='tw-text-center tw-p-3 tw-uppercase tw-text-stone-700 m-0'>
-								{data.date}
+								{new Date(data.created_at).toLocaleString(
+									'en-US',
+									{
+										dateStyle: 'medium',
+										timeStyle: 'short',
+									}
+								)}
 							</th>
 							<th className='tw-text-center tw-p-3 tw-uppercase tw-text-stone-700 m-0'>
-								${data.Total}
+								${data.total_price}
 							</th>
 							<th className='tw-text-center tw-p-3 tw-text-sky-600 m-0'>
 								<Link className='tw-font-[500] tw-tracking-wide tw-text-lg m-0'>

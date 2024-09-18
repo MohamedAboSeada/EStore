@@ -1,2 +1,17 @@
 @tailwind components;
 @tailwind utilities;
+
+.success_msg {
+    position: fixed;
+    bottom: 20px;
+    right: -500px;
+    transition: 300ms ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.show {
+    right: 50px;
+}
