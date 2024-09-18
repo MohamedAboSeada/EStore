@@ -1,104 +1,17 @@
-.first {
-   width: 100%;
-   display: flex;
-
-  flex-direction: column;
-  flex-wrap: wrap;
-
-  margin-top: 100px;
-  margin-left: 20px;
-
-  justify-content: center;
+.firstAbout{
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
-
-.Main {
-  margin-top: -550px;
-  margin-left: -500px;
-}
-
-
-.img {
-
-  margin-left: 700px;
-  width: 700px;
-  height: 526px;
-
-  /* width: 55px;  
-  height: 90px;  */
-  /* margin-top: -200px;  */
-
-  /* position: relative;
-  left: 700px;  */
-}
-
-.firstHeader1 {
-  color: white;
-  text-align: center;
-  background-color: #2da5f3;
-  width: 124px;
-  height: 36px;
-  font-weight: 400;
-  font-size: 14px;
-  /* flex-direction: column; */
-  /* flex-wrap: wrap; */
-
-}
 .Main{
-  display: flex;
-  flex-direction: column;
+  min-width: 40%;
 }
-.firstHeader1 span{
-  
-  padding-top: 30px;
+@media(max-width:750px){
+  .firstAbout{
+    display: flex;
+    flex-direction: column;
+  }
 }
-
-.firstHeader2 {
-  font-size: 40px;
-  font-weight: 600;
-  color: #191c1f;
-  margin-top: 60;
-  /* flex-direction: row;
-  flex-wrap: wrap; */
-  margin-left: 5px;
-  width: 500px;
-
-}
-
-.firstContent {
-  color: #475156;
-  font-weight: 200;
-  font-size: 16px;
-  margin-top: 20px;
-  /* margin-top: -500px; */
-  /* flex-direction:row ;
-  flex-wrap: wrap; */
-  width: 70%;
-
-
-
-
-}
-
-.addressFirst {
-  margin-top: 40px;
-  color: #191c1f;
-  font-size: 16px;
-
-  /* flex-direction: column;
-  flex-wrap: wrap; */
-}
-
-
-
-
-
-
-
-
-
-
-
 
 /* ................................................... */
 
@@ -150,16 +63,16 @@
 
 @media (max-width: 768px) {
   .teamMember {
-      flex-direction: row; /* Ensure items remain side by side on mobile */
+      flex-direction: row; 
   }
 
   .sessionImg img {
-      width: 60px; /* Adjust size for smaller screens */
-      height: 60px; /* Ensure aspect ratio is maintained */
+      width: 60px; 
+      height: 60px; 
   }
 
   h5.sessionHeader {
-      font-size: 16px; /* Slightly smaller text on mobile */
+      font-size: 16px; 
   }
 
   span.sessionSpan {
@@ -169,10 +82,6 @@
 
 
 
-
-
-
-/* .............................................. */
 
 
 /* lastsession   products */
@@ -207,62 +116,10 @@
   color: #2DA5F3;
 
 }
-
-/* ................................ */
-
-/* banner */
-.banner {
-  margin-top: 60px;
-  margin-bottom: 60px;
-
-}
-
-.bannerImg{
- /* background-image:url('/public/images/banner.jpg') ; */
- background-size: cover;
- background-repeat: no-repeat;
- min-height: 100vh;
-
-}
-
-.bannerSpan {
-  font-weight: 600;
-  font-size: 32px;
-}
-
-.bannerSpan2 {
-  font-weight: 400;
-  font-size: 18px;
-}
-
-.bannerContent {
-  padding-top: 180px;
-  margin-left: 40px;
-
-}
-
-.button {
-  background-color: orange;
-  margin-top: 30px;
-  border: 1px solid orange;
-  border-radius: 50%;
-  width: 80px;
-  /* Increase width */
-  height: 90px;
-  /* Increase height */
-
-
-}
-
-.bannerSpan2 {
-  margin-top: 30px;
-}
-
-.button img {
-  width: 60px;
-  /* Adjust as needed */
-  height: 60px;
-  /* Adjust as needed */
-  object-fit: cover;
-  /* Ensures the image covers the area without distortion */
+.bannerBackground{
+  min-height: 400px;
+  background-image: url('/public/Images/BannerBgImage.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

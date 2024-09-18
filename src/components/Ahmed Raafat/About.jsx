@@ -8,15 +8,11 @@ class About extends Component {
   render() {
     return (
       <>
-        <div>
-          <div className="first">
-            <div className="img">
-              <img src="./images/first.png" alt="error"></img>
-            </div>
-
+         {/* About Section */}
+          <div className="firstAbout container">
             <div className="Main">
-              <div className="firstHeader1">
-                <span style={{marginTop:'40px'}}>WHO WE ARE</span>
+              <div style={{marginBottom:'20px'}} className="firstHeader1">
+                <span style={{background: '#2DA5F3',padding:'10px 20px'}}>WHO WE ARE</span>
               </div>
 
               <div className="firstHeader2">
@@ -38,8 +34,10 @@ class About extends Component {
                 <p>Over 1 Million Electronics Products</p>
               </div>
             </div>
+            <div className="img">
+              <img width='100%' src="./images/first.png" alt="error"></img>
+            </div>
           </div>
-        </div>
         <Session />
         <Banner />
         <LastSession />
