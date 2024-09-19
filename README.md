@@ -1,4 +1,5 @@
-# React ECommerce Project 
+# [React ECommerce Project](https://ecommerce-teamproject.vercel.app/)
+# [Video of the project](https://drive.google.com/file/d/1nYpYZjrEh9AK2AYoshH3cWeFpMvk-WS_/view?usp=sharing)
 
 ### Technology used in this webitse
 
