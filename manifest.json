@@ -1,0 +1,9 @@
+{
+  "short_name": "EStore",
+  "name": "EStore is an e-commerce store for electrical devices",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
