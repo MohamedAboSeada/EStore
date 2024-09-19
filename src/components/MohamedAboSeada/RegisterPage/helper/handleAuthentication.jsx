@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { supabase } from './client.mjs';
-import { CreateUser, GetUser } from './Users';
+import { CreateUser } from './Users';
 
 let AuthContext = createContext();
 

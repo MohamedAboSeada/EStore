@@ -3,6 +3,7 @@ import { supabase } from '../RegisterPage/helper/client.mjs';
 import { CartContext } from '../../MariamElagamii/Cart/CartContext';
 import { AuthContext } from '../RegisterPage/helper/handleAuthentication';
 import { extractPrice } from '../../MariamElagamii/Cart/Cart';
+
 const OrderContext = createContext(null);
 
 function OrderProvider({ children }) {
@@ -15,9 +16,11 @@ function OrderProvider({ children }) {
 		const { data, error } = await supabase
 			.from('orders')
 			.select('*')
-			.eq('user_id', user.id)
-			.select();
-		if (!error) {
+			.eq('user_id', user.id);
+
+		if (error) {
+			console.error('Error fetching orders:', error);
+		} else {
 			setOrders(data);
 		}
 	}
@@ -27,15 +30,22 @@ function OrderProvider({ children }) {
 		if (user) {
 			fetchOrders();
 		}
-	}, [user,orders]);
+	}, [user]); // removed 'orders' from dependency array
 
 	// create order
 	let makeOrder = async () => {
-		let total = cart.reduce(
-			(p, c) => p + extractPrice(c?.discount_price),
-			0
-		);
+		let total = 0;
 
+		// order total amount
+		for (let item of cart) {
+			if (item.discount_price) {
+				total += extractPrice(item.discount_price) * item.quantity;
+			} else {
+				total += extractPrice(item.actual_price) * item.quantity;
+			}
+		}
+
+		// order row
 		let row = {
 			status: 'in progress',
 			total_price: total,
@@ -49,26 +59,31 @@ function OrderProvider({ children }) {
 			.insert(row)
 			.select();
 
-		if (!error) {
-			addOrderitems(data[0].id);
-			clearAll();
+		if (error) {
+			console.error('Error creating order:', error);
+			return;
 		}
+
+		addOrderItems(data[0].id);
 	};
 
-	let addOrderitems = async (order_id) => {
-		const { data, error } = await supabase
-			.from('order_items')
-			.insert(
-				cart.map((item) => ({
-					id: order_id,
-					pid: item.id,
-					quantity: item.quantity,
-					price: extractPrice(item.discount_price),
-				}))
-			)
-			.select();
-		if (!error) {
+	let addOrderItems = async (order_id) => {
+		const { error } = await supabase.from('order_items').insert(
+			cart.map((item) => ({
+				id: order_id, // corrected from 'id' to 'order_id'
+				pid: item.id,
+				quantity: item.quantity,
+				price: item.discount_price
+					? extractPrice(item.discount_price)
+					: extractPrice(item.actual_price),
+			}))
+		);
+
+		if (error) {
+			console.error('Error adding order items:', error);
+		} else {
 			fetchOrders();
+			clearAll();
 		}
 	};
 

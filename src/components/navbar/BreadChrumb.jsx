@@ -9,7 +9,7 @@ const BreadChrumb = () => {
 
 	return (
 		<nav className='tw-bg-slate-100'>
-			<ol className='container tw-flex tw-list-none tw-space-x-3 tw-m-0 tw-p-0'>
+			<ol className='container tw-flex tw-flex-wrap tw-list-none tw-gap-2 tw-m-0 tw-p-0'>
 				<li className=''>
 					<Link
 						to='/'

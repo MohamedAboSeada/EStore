@@ -1,12 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { getOrders } from '../RegisterPage/helper/Orders';
-import { OrderContext } from '../orders/orders';
+import { OrderContext } from './orders';
+
 const tableRows = [
 	{ w: 'tw-w-auto', name: 'id' },
 	{ w: 'tw-w-24', name: 'status' },
 	{ w: 'tw-w-auto', name: 'date' },
 	{ w: 'tw-w-24', name: 'total' },
+	{ w: 'tw-w-auto', name: 'options' },
 ];
 
 function mapToColor(order_status) {
@@ -67,6 +68,15 @@ function OrderHistory() {
 								</td>
 								<td className='tw-text-center tw-whitespace-nowrap tw-font-[600] tw-text-lg tw-p-3 tw-uppercase tw-text-stone-700 m-0'>
 									${data.total_price}
+								</td>
+								<td className='tw-text-center tw-whitespace-nowrap tw-font-[600] tw-text-lg tw-p-3 tw-uppercase tw-text-stone-700 m-0'>
+									<Link
+										className='tw-flex tw-items-center tw-justify-center tw-gap-3 tw-no-underline'
+										to={`/dashboard/order-history/${data.id}`}
+									>
+										view details
+										<i className='fas fa-arrow-right'></i>
+									</Link>
 								</td>
 							</tr>
 						))}

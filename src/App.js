@@ -17,7 +17,8 @@ import RegisterForm from './components/MohamedAboSeada/RegisterPage/RegisterForm
 import { AuthProvider } from './components/MohamedAboSeada/RegisterPage/helper/handleAuthentication';
 import { CartProvider } from './components/MariamElagamii/Cart/CartContext';
 import { WhishListProvider } from './components/MohamedAboSeada/Dashboard/WhishListContext';
-import { OrderProvider } from './components/MohamedAboSeada/orders/orders';
+import { OrderProvider } from './components/MohamedAboSeada/Dashboard/orders';
+
 // Dashboard
 import Dashboard from './components/MohamedAboSeada/Dashboard/Dashboard';
 import UserData from './components/MohamedAboSeada/Dashboard/UserData';
@@ -25,6 +26,7 @@ import OrderHistory from './components/MohamedAboSeada/Dashboard/OrderHistory';
 import Settings from './components/MohamedAboSeada/Dashboard/Settings';
 import ProtectedRoute from './components/MohamedAboSeada/RegisterPage/helper/ProtectedRoute';
 import Whishlist from './components/MohamedAboSeada/Dashboard/Whishlist';
+import OrderDetails from './components/MohamedAboSeada/Dashboard/OrderDetails';
 
 // MariamElagamii
 import ProductList from './components/MariamElagamii/Products/ProductList';
@@ -83,6 +85,10 @@ class App extends React.Component {
 										<Route
 											path='order-history'
 											element={<OrderHistory />}
+										></Route>
+										<Route
+											path='order-history/:id'
+											element={<OrderDetails />}
 										></Route>
 										<Route
 											path='cart'

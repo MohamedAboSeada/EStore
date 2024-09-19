@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import useInnerWidth from '../MariamElagamii/Cart/useInnerWidth';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../MohamedAboSeada/RegisterPage/helper/handleAuthentication';
