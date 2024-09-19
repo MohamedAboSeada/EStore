@@ -52,23 +52,23 @@ class App extends React.Component {
 									></Route>
 									{/* customer service */}
 									<Route
-										path='/EStore/customer-service'
+										path='/customer-service'
 										element={<Service />}
 									></Route>
 
 									{/* about */}
 									<Route
-										path='/EStore/about'
+										path='/about'
 										element={<About />}
 									></Route>
 
 									{/* shop */}
 									<Route
-										path='/EStore/shop'
+										path='/shop'
 										element={<ProductList />}
 									></Route>
 									<Route
-										path='/EStore/shop/:id'
+										path='/shop/:id'
 										element={<ProductDetails />}
 									></Route>
 
@@ -109,7 +109,7 @@ class App extends React.Component {
 
 									{/* Register Routes */}
 									<Route
-										path='/EStore/register'
+										path='/register'
 										element={<RegisterForm />}
 									></Route>
 								</Routes>
