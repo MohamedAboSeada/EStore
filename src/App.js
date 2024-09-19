@@ -46,32 +46,35 @@ class App extends React.Component {
 								<BreadChrumb />
 								{/* routes */}
 								<Routes>
-									<Route path='/' element={<Home />}></Route>
+									<Route
+										path='/EStore'
+										element={<Home />}
+									></Route>
 									{/* customer service */}
 									<Route
-										path='customer-service'
+										path='/EStore/customer-service'
 										element={<Service />}
 									></Route>
 
 									{/* about */}
 									<Route
-										path='about'
+										path='/EStore/about'
 										element={<About />}
 									></Route>
 
 									{/* shop */}
 									<Route
-										path='/shop'
+										path='/EStore/shop'
 										element={<ProductList />}
 									></Route>
 									<Route
-										path='/shop/:id'
+										path='/EStore/shop/:id'
 										element={<ProductDetails />}
 									></Route>
 
 									{/* dashboard */}
 									<Route
-										path='/dashboard'
+										path='EStore/dashboard'
 										element={
 											<ProtectedRoute>
 												<Dashboard />
@@ -106,7 +109,7 @@ class App extends React.Component {
 
 									{/* Register Routes */}
 									<Route
-										path='/register'
+										path='/EStore/register'
 										element={<RegisterForm />}
 									></Route>
 								</Routes>
