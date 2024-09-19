@@ -27,15 +27,34 @@
     width: 100%;
   }
   
-  .btn {
-    background-color: #FA8232;
+  .btn1 {
+    border: 1px solid #FA8232;
     padding: 10px 30px;
-    color: white;
-    border: none;
-    border-radius: 4px; /* إضافة حواف دائرية للأزرار */
+    color: black; /* لون النص */
+    background-color: transparent; /* خلفية الزر شفافة */
+    border-radius: 4px; /* حواف دائرية */
     cursor: pointer;
-  }
-  
+}
+
+.btn1:hover {
+    color: #FA8232; /* تغيير لون النص عند التحويم */
+    background-color: transparent; /* خلفية الزر تظل شفافة */
+    outline: 2px solid #FA8232; 
+}
+.btn2{
+  border: 1px solid #FA8232;
+    padding: 10px 30px;
+    color: white; /* لون النص */
+    background-color: transparent; /* خلفية الزر شفافة */
+    border-radius: 4px; /* حواف دائرية */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease; /* تأثيرات انتقال سلسة */
+}
+.btn2:hover {
+  color: #FA8232; /* تغيير لون النص عند التحويم */
+  background-color: transparent; /* خلفية الزر تظل شفافة */
+  outline: 2px solid #FA8232; 
+}
   .paragraph, .paragraph2 {
     display: inline;
     padding: 5px 10px;
@@ -95,7 +114,13 @@
       height: auto;
     }
   }
+  .BannerImages {
+    transition: transform 0.3s ease; /* تأثير انتقال سلس */
+  }
   
+  .BannerImages:hover {
+    transform: translateX(20px) ; /* تحريك و skew عند التحويم */
+  }
   /* القواعد الخاصة بالشاشات الأصغر جداً */
   @media (max-width: 500px) {
     .content {
