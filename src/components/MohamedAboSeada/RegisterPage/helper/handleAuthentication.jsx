@@ -114,9 +114,6 @@ function AuthProvider({ children }) {
 		try {
 			const { data, error } = await supabase.auth.signInWithOAuth({
 				provider: 'google',
-				options: {
-					redirectTo: 'http://localhost:3000/dashboard/user-data',
-				},
 			});
 		} catch (err) {
 			console.error('Error signing in with Google:', err);
